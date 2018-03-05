@@ -1,9 +1,26 @@
 fileFormatVersion: 2
 guid: 341022c5b97aa3541834437a9ce0bbd9
-timeCreated: 1520201010
+timeCreated: 1520201988
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: game_jam_pug_hero_placeholder_0
+    21300002: game_jam_pug_hero_placeholder_1
+    21300004: game_jam_pug_hero_placeholder_2
+    21300006: game_jam_pug_hero_placeholder_3
+    21300008: game_jam_pug_hero_placeholder_4
+    21300010: game_jam_pug_hero_placeholder_5
+    21300012: game_jam_pug_hero_placeholder_6
+    21300014: game_jam_pug_hero_placeholder_7
+    21300016: game_jam_pug_hero_placeholder_8
+    21300018: game_jam_pug_hero_placeholder_9
+    21300020: game_jam_pug_hero_placeholder_10
+    21300022: game_jam_pug_hero_placeholder_11
+    21300024: game_jam_pug_hero_placeholder_12
+    21300026: game_jam_pug_hero_placeholder_13
+    21300028: game_jam_pug_hero_placeholder_14
+    21300030: game_jam_pug_hero_placeholder_15
+    21300032: game_jam_pug_hero_placeholder_16
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,7 +57,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -65,9 +82,139 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: game_jam_pug_hero_placeholder_8
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 488
+        width: 211
+        height: 144
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: game_jam_pug_hero_placeholder_9
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 486
+        width: 210
+        height: 138
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: game_jam_pug_hero_placeholder_10
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 488
+        width: 211
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: game_jam_pug_hero_placeholder_11
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 488
+        width: 210
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: game_jam_pug_hero_placeholder_0
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 659
+        width: 215
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: game_jam_pug_hero_placeholder_1
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 659
+        width: 215
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: game_jam_pug_hero_placeholder_2
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 659
+        width: 219
+        height: 161
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: game_jam_pug_hero_placeholder_3
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 659
+        width: 219
+        height: 166
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
