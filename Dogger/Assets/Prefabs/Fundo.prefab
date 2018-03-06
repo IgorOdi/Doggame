@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224518466128067016}
   - component: {fileID: 222946966198325608}
   - component: {fileID: 114653397263820246}
+  - component: {fileID: 65872483219679896}
   m_Layer: 5
   m_Name: Fundo
   m_TagString: Untagged
@@ -28,6 +29,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &65872483219679896
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1237162969278410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1080, y: 1080, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114653397263820246
 MonoBehaviour:
   m_ObjectHideFlags: 1

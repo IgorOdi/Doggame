@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Teste : MonoBehaviour {
+public class CorridorGenerator : MonoBehaviour {
 
 	public Sprite[] walls;
 	public Sprite door;
@@ -37,12 +37,12 @@ public class Teste : MonoBehaviour {
 
 		GameObject startDoor = Instantiate (wallPrefab, transform, false);
 		startDoor.transform.localPosition = Vector3.zero;
-		startDoor.name = "Start_Door";
+		startDoor.name = "Wall_0";
 		startDoor.GetComponent<Image>().sprite = door;
 
 		GameObject endDoor = Instantiate (wallPrefab, transform, false);
 		endDoor.transform.localPosition = Vector3.right * (numberOfWalls + 1) * 1080;
-		endDoor.name = "End_Door";
+		endDoor.name = "Wall_" + (numberOfWalls + 1);
 		endDoor.GetComponent<Image>().sprite = door;
 	}
 

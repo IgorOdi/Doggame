@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour {
 	void Start () {
 		an = heroes.GetComponentsInChildren<Animator>();
 		cameraT = Camera.main.transform;
-		camMax = (((GameObject.Find ("Walls").GetComponent<Teste> ().numberOfWalls + 1) * 1080) - 432) * -1;
+		camMax = (((GameObject.Find ("Walls").GetComponent<CorridorGenerator> ().numberOfWalls + 1) * 1080) - 432) * -1;
 		camMin = -432;
 	}
 	
