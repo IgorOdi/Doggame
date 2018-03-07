@@ -57,14 +57,15 @@ public class Skill : ScriptableObject {
 		if (_target != null) {
 
 			float randomizador = Random.Range (0f, 1f);
+			int _damage = effect;
 			int critMultiplier = randomizador > _attacker.actualInfo.crt ? 2 : 1;
 
-			if (effect == 0)
-				effect = _attacker.actualInfo.atk - _target.actualInfo.def;
+			if (_damage == 0)
+				_damage = _attacker.actualInfo.atk - _target.actualInfo.def;
 
 			if (rangeType == RangeType.OneTarget) {
 
-				_target.actualInfo.hp -= effect * critMultiplier;
+				_target.actualInfo.hp -= _damage * critMultiplier;
 
 			} else {
 
@@ -72,13 +73,13 @@ public class Skill : ScriptableObject {
 
 					for (int i = 0; i < BattleManager.instance.enemyParty.Count; i++) {
 
-						BattleManager.instance.enemyParty [i].actualInfo.hp -= effect * critMultiplier;
+						BattleManager.instance.enemyParty [i].actualInfo.hp -= _damage * critMultiplier;
 					}
 				} else {
 
 					for (int i = 0; i < BattleManager.instance.enemyParty.Count; i++) {
 
-						BattleManager.instance.heroParty [i].actualInfo.hp -= effect * critMultiplier;
+						BattleManager.instance.heroParty [i].actualInfo.hp -= _damage * critMultiplier;
 					}
 				}
 			}
@@ -133,7 +134,6 @@ public class Skill : ScriptableObject {
 			}
 		}
 
-		_target.VerifyAlive ();
 		BattleManager.instance.NextTurn ();
 	}
 }

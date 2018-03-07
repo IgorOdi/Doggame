@@ -32,7 +32,7 @@ public class EnemyAgent : BattleAgent {
 
 			int index = BattleManager.instance.enemyParty.FindIndex (d => d == this) + 4;
 			BattleManager.instance.enemyParty.Remove (this);
-			BattleManager.instance.ReQueue (index);
+			BattleManager.instance.ReQueue (index, position, false);
 			if (BattleManager.instance.selectedTarget == this) BattleManager.instance.selectedTarget = null;
 		}
 	}

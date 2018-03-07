@@ -13,7 +13,7 @@ public class BattleManager : MonoBehaviour {
 	public List<int> turnQueue;
 	[HideInInspector]
 	public BattleAgent selectedHero;
-//	[HideInInspector]
+	[HideInInspector]
 	public BattleAgent selectedTarget;
 	[HideInInspector]
 	public bool selecting;
@@ -47,7 +47,7 @@ public class BattleManager : MonoBehaviour {
 					HeroAgent heroAgent = battleAgents [i].GetComponent<HeroAgent> ();
 					heroParty.Add (heroAgent);
 					heroAgent.position = i;
-					battleAgents [i].transform.position = new Vector2 (heroPositions [i] - 0.5f, yPos);
+					battleAgents [i].transform.localPosition = new Vector2 (heroPositions [i], yPos);
 				}
 
 			} else {
@@ -59,7 +59,7 @@ public class BattleManager : MonoBehaviour {
 				enemyAgent.DefineStats ();
 				enemyParty.Add (enemyAgent);
 
-				battleAgents [i].transform.position = new Vector2 (enemyPositions [i - maxEnemies] + 0.5f, yPos);
+				battleAgents [i].transform.localPosition = new Vector2 (enemyPositions [i - maxEnemies], yPos);
 			}
 		}
 			
@@ -104,12 +104,7 @@ public class BattleManager : MonoBehaviour {
 			}
 		}
 	}
-
-	public void ReQueue(int index) {
-
-		turnQueue.Remove (index);
-	}
-
+		
 	public void NextTurn() {
 
 		if (turnQueue.Count > 0) {
@@ -135,43 +130,111 @@ public class BattleManager : MonoBehaviour {
 		}
 	}
 
-	public void ActiveChange() {
+	public void Action() {
 
-		StartCoroutine (ChangeOrder ());
+		StartCoroutine (DoAction ());
 	}
 
-	public IEnumerator ChangeOrder() {
+	public IEnumerator DoAction() {
 
 		selecting = true;
 
-		while (selectedHero == null || selectedTarget == null)
+		while (selectedTarget == null)
 			yield return null;
-
-		float t = 0;
-		Vector2 a = selectedHero.transform.position;
-		Vector2 b = selectedTarget.transform.position;
-
-		HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
-
-		while (t <= 1) {
-
-			selectedHero.transform.position = Vector2.Lerp (a, b, t);
-			selectedTarget.transform.position = Vector2.Lerp (b, a, t);
-			heroAgent.ChangeHUD (selectedHero);
-			t += Time.deltaTime * 2;
-			yield return null;
-		}
-
-		selectedTarget = null;
-		selecting = false;
-	}
-
-	public void Action() {
 
 		if (selectedHero == battleAgents [agentTurn]) {
 
 			HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
 			heroAgent.heroInfo.skillList [0].CheckSkill (selectedHero, selectedTarget);
+			selecting = false;
+			selectedTarget = null;
+			HUDManager.instance.ChangeTargetHUD (null);
+		}
+	}
+
+	public void ActiveChange() {
+
+		if (selectedHero == battleAgents[agentTurn])
+			StartCoroutine (ChangeOrder ());
+	}
+
+	public void ReQueue(int index, int position, bool hero) {
+
+		turnQueue.Remove (index);
+
+		if (hero) {
+
+			foreach (HeroAgent h in heroParty) {
+
+				if (h.position > position) {
+
+					h.position -= 1;
+					StartCoroutine(RePosition(h.transform, heroPositions[h.position + 1], heroPositions[h.position]));
+				}
+			}
+		} else {
+
+			foreach (EnemyAgent e in enemyParty) {
+
+				if (e.position > position) {
+
+					e.position -= 1;
+					StartCoroutine(RePosition(e.transform, enemyPositions[position + 1], enemyPositions[e.position]));
+				}
+			}
+		}
+	}
+
+	private IEnumerator RePosition(Transform tr, float _a, float _b) {
+
+		float t = 0;
+
+		Vector2 a = new Vector2 (_a, yPos);
+		Vector2 b = new Vector2 (_b, yPos);
+
+		while (t < 1) {
+
+			tr.localPosition = Vector2.Lerp (a, b, t);
+			t += Time.deltaTime * 2;
+			yield return null;
+		}
+	}
+
+
+	public IEnumerator ChangeOrder() {
+
+		selecting = true;
+
+		while ((selectedHero == null || selectedTarget == null))
+			yield return null;
+
+		int dif = selectedHero.position - selectedTarget.position;
+
+		if (dif <= 1 && dif >= -1) {
+
+			float t = 0;
+			Vector2 a = selectedHero.transform.localPosition;
+			Vector2 b = selectedTarget.transform.localPosition;
+			int aPosition = selectedHero.position;
+			int bPosition = selectedTarget.position;
+
+			HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
+
+			while (t < 1) {
+
+				selectedHero.transform.localPosition = Vector2.Lerp (a, b, t);
+				selectedTarget.transform.localPosition = Vector2.Lerp (b, a, t);
+				heroAgent.ChangeHUD (selectedHero);
+				t += Time.deltaTime * 2;
+				yield return null;
+			}
+
+			selectedHero.position = bPosition;
+			selectedTarget.position = aPosition;
+
+			selectedTarget = null;
+			HUDManager.instance.ChangeTargetHUD (null);
+			selecting = false;
 		}
 	}
 

@@ -12,8 +12,11 @@ public class BattleAgent : MonoBehaviour {
 
 	private void OnMouseDown() {
 
-		BattleManager.instance.selectedTarget = this;
-		HUDManager.instance.ChangeTargetHUD (this);
+		if (BattleManager.instance.selecting) {
+			
+			BattleManager.instance.selectedTarget = this;
+			HUDManager.instance.ChangeTargetHUD (this);
+		}
 	}
 
 	public virtual void DefineStats() {

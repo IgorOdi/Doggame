@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: PugBasic
   m_EditorClassIdentifier: 
   name: PugBasic
-  damage: 3
+  effect: 0
   range: 0
+  cooldown: 0
   skillType: 0
   rangeType: 0
