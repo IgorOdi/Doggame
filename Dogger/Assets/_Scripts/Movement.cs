@@ -5,58 +5,104 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
 
 	public float walkSpeed = 1;
-	public Transform heroes;
+	public static Transform corridorToMove;
+	public Transform startCorridor;
+	public Transform startRoom;
+
+	public RectTransform[] corridorsT;
 
 	Animator[] an;
 	Transform cameraT;
+	RectTransform rectT;
 
 	float camMax;
 	float camMin;
 
+	Vector3 lastPos;
+
 	bool reachedMaxPos;
 	bool reachedMinPos;
+	bool canMove = true;
+
+	GameObject[] corridors;
+	RectTransform HUD;
 
 	// Use this for initialization
 	void Start () {
-		an = heroes.GetComponentsInChildren<Animator>();
+		corridorToMove = startCorridor;
+		GameManager.instance.corridorsT = new RectTransform[corridorsT.Length];
+		GameManager.instance.corridorsT = corridorsT;
+
+		an = GetComponentsInChildren<Animator>();
+		rectT = corridorToMove.gameObject.GetComponent<RectTransform> ();
 		cameraT = Camera.main.transform;
-		camMax = (((GameObject.Find ("Walls").GetComponent<CorridorGenerator> ().numberOfWalls + 1) * 1080) - 432) * -1;
-		camMin = -432;
+		camMax = (((corridorToMove.gameObject.GetComponent<CorridorGenerator> ().numberOfWalls + 1) * 720) - 240) * -1;
+		camMin = 0;
+
+		GameManager.instance.currentCorridor = 0;
+
+		corridors = new GameObject[GameManager.instance.corridorList.Count];
+
+		for (int i = 0; i < GameManager.instance.corridorList.Count; i++) {
+			corridors [i] = GameManager.instance.corridorList [i].gameObject;
+		}
+
+		GameManager.instance.heroesT = transform;
+
+		GameManager.instance.currentRoom = 0;
+
+		HUD = GameObject.Find ("HUD").GetComponent<RectTransform> ();
+
+		transform.position = startRoom.position;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
+		lastPos = corridorToMove.position;
 
-		if  (gameObject.GetComponent<RectTransform>().localPosition.x <= camMax) {
-			reachedMaxPos = true;
-		} else if (gameObject.GetComponent<RectTransform>().localPosition.x >= camMin) {
-			reachedMinPos = true;
-		} else {
-			reachedMaxPos = false;
-			reachedMinPos = false;
-		}
+		if (GameManager.instance.currentLocation == "Corridor" && canMove) {
 
-		//Se estiver clicando para andar
-		if (Input.GetMouseButton (0)) {
-			//Anda pra Direita
-			if (Input.mousePosition.x >= Screen.width/2) {
-				if (!reachedMaxPos) transform.position += Vector3.left * Time.deltaTime * walkSpeed;
+			if (rectT.localPosition.x <= camMax) {
+				reachedMaxPos = true;
+			} else if (rectT.anchoredPosition.x >= 0) {
+				reachedMinPos = true;
+			} else {
+				reachedMaxPos = false;
+				reachedMinPos = false;
 			}
+
+			//Se estiver clicando para andar
+			if (Input.GetMouseButton (0)) {
+				//Anda pra Direita
+				if (Input.mousePosition.x >= Screen.width / 2) {
+					if (!reachedMaxPos)
+						corridorToMove.position += Vector3.left * Time.deltaTime * walkSpeed;
+				}
 			//Anda pra Esquerda
 			else {
-				if (!reachedMinPos) transform.position += Vector3.right * Time.deltaTime * walkSpeed;
+					if (!reachedMinPos)
+						corridorToMove.position += Vector3.right * Time.deltaTime * walkSpeed;
+				}
+
 			}
 
-
-			for (int i = 0; i < an.Length; i++) {
-				an [i].SetBool ("Walking", true);
+			if (lastPos != corridorToMove.position) {
+				for (int i = 0; i < an.Length; i++) {
+					an [i].SetBool ("Walking", true);
+				}
+			} else {
+				for (int i = 0; i < an.Length; i++) {
+					an [i].SetBool ("Walking", false);
+				}
 			}
 		}
 
-		else {
-			for (int i = 0; i < an.Length; i++) {
-				an [i].SetBool ("Walking", false);
-			}
-		}
+	}
+
+	void LateUpdate() {
+		cameraT.position = GameManager.instance.heroesT.position + Vector3.forward * -10;
+		HUD.position = GameManager.instance.heroesT.position + Vector3.forward * 10;
+		print (HUD.position + "   " + HUD.anchoredPosition);	
+
 	}
 }

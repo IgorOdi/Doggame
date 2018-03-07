@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	
 	public int currentCorridor;
+	public List<Corridor> corridorList = new List<Corridor>();
+	public RectTransform[] corridorsT;
+	public List<RoomGenerator> roomList = new List<RoomGenerator>();
 	public int currentWall;
 	public int currentRoom;
 	public int nextRoom;
@@ -19,16 +23,18 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
+	public string currentLocation;
+
 	// Use this for initialization
-	void Start () {
+	void OnEnable () {
 		if (instance == null) instance = this;
 
-		else if (instance != this) Destroy(gameObject);  
+		else if (instance != this) Destroy(gameObject);
 
 		DontDestroyOnLoad(gameObject);
 
-		heroesT = GameObject.Find ("Heroes").transform;
-		cam = Camera.main;
+		GameManager.instance.currentLocation = "";
+
 	}
 	
 	// Update is called once per frame
@@ -37,15 +43,45 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void UpdateHeroesPosition() {
-		screenCenter = cam.ScreenToWorldPoint (new Vector3 (Screen.width/2, Screen.height/2, 0));
+
+		cam = Camera.main;
+		screenCenter = cam.ScreenToWorldPoint (new Vector3 (Screen.width/4, Screen.height/2, 0));
 
 		RaycastHit hit;
 		if (Physics.Raycast (screenCenter, Vector3.forward * 25f, out hit, 25f)) {
-			string[] hitWallName = hit.transform.name.Split (new string[] { "_" }, System.StringSplitOptions.None);
-			currentWall = int.Parse (hitWallName [1]);
-			print (currentWall);
+			
+			if (hit.transform.name.Contains("Wall")) {
+
+				string[] hitWallName = hit.transform.name.Split (new string[] { "_" }, System.StringSplitOptions.None);
+				currentWall = int.Parse (hitWallName [1]);
+				GameManager.instance.currentLocation = "Corridor";
+				Movement.corridorToMove = hit.transform.parent;
+			
+			} else if (hit.transform.name.Contains("Room")) {
+				
+				GameManager.instance.currentLocation = "Room";
+
+				for (int i = 0; i < corridorsT.Length; i++) {
+					corridorsT [i].anchoredPosition = new Vector2 (0, corridorsT [i].anchoredPosition.y);
+				}
+
+			} else {
+				GameManager.instance.currentLocation = "";
+			}
 		}
 
 		Debug.DrawRay (screenCenter, Vector3.forward * 25f);
+	}
+
+	public void LoadScene(string sceneName) {
+		SceneManager.LoadScene (sceneName);
+	}
+
+	public void GoToRoom (Transform roomPosition) {
+		GameManager.instance.heroesT.position = roomPosition.position;
+	}
+
+	public void GoToCorridor (Transform corridorPos) {
+		GameManager.instance.heroesT.position = corridorPos.position;
 	}
 }
