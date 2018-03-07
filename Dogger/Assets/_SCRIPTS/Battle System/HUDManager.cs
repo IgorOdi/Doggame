@@ -13,14 +13,13 @@ public class HUDManager : MonoBehaviour {
 	private Image[] skillImg;
 	[SerializeField]
 	private Text[] statsText;
-
 	[SerializeField]
 	private Text[] enemyStatsText;
 
 	[SerializeField]
-	private RectTransform selectedHero;
+	private RectTransform turnMarker;
 	[SerializeField]
-	private RectTransform selectedEnemy;
+	private RectTransform targetMarker;
 
 	void Awake() {
 
@@ -35,16 +34,7 @@ public class HUDManager : MonoBehaviour {
 		statsText [3].text = "SPD " + _heroStats.spd.ToString();
 		statsText [4].text = "CRIT " + _heroStats.crt * 100 + "%";
 
-		bool active = BattleManager.instance.selectedHero != null ? true : false;
-		selectedHero.gameObject.SetActive (active);
-
-		if (BattleManager.instance.selectedHero != null) {
-
-			Vector2 pos = worldToUISpace (BattleManager.instance.selectedHero.transform.position);
-			Vector2 newPos = selectedHero.transform.position;
-			newPos.x = pos.x;
-			selectedHero.transform.position = newPos;
-		}
+		ChangeTurnHUD ();
 	}
 
 	public void ChangeEnemyHUD(Stats _enemyStats) {
@@ -55,12 +45,37 @@ public class HUDManager : MonoBehaviour {
 		enemyStatsText [3].text = "SPD " + _enemyStats.spd.ToString();
 		enemyStatsText [4].text = "CRIT " + _enemyStats.crt * 100 + "%";
 
-		bool active = BattleManager.instance.selectedEnemy != null ? true : false;
-		selectedEnemy.gameObject.SetActive (active);
-		Vector2 pos = worldToUISpace (BattleManager.instance.selectedEnemy.transform.position);
-		Vector2 newPos = selectedEnemy.transform.position;
+		ChangeTurnHUD ();
+	}
+
+	public void ChangeTargetHUD(BattleAgent selectedAgent) {
+
+		bool active = BattleManager.instance.selectedTarget != null ? true : false;
+		targetMarker.gameObject.SetActive (active);
+
+		if (selectedAgent != null) {
+			
+			Vector2 pos = worldToUISpace (selectedAgent.transform.position);
+			Vector2 newPos = targetMarker.transform.position;
+			newPos.x = pos.x;
+			targetMarker.transform.position = newPos;
+
+			if (selectedAgent.GetComponent<EnemyAgent>() != null)
+				ChangeEnemyHUD (selectedAgent.actualInfo);
+		}
+	}
+
+	private void ChangeTurnHUD() {
+
+		turnMarker.gameObject.SetActive (true);
+
+		int _agentTurn = BattleManager.instance.agentTurn;
+		Transform t = BattleManager.instance.battleAgents [_agentTurn].transform;
+
+		Vector2 pos = worldToUISpace (t.position);
+		Vector2 newPos = turnMarker.transform.position;
 		newPos.x = pos.x;
-		selectedEnemy.transform.position = newPos;
+		turnMarker.transform.position = newPos;
 	}
 
 	public Vector2 worldToUISpace(Vector2 worldPos) {
@@ -68,7 +83,7 @@ public class HUDManager : MonoBehaviour {
 		Vector2 screenPos = Camera.main.WorldToScreenPoint (worldPos);
 		Vector2 movePos;
 
-		RectTransformUtility.ScreenPointToLocalPointInRectangle (selectedHero, screenPos, Camera.main, out movePos);
-		return selectedHero.transform.TransformPoint (movePos);
+		RectTransformUtility.ScreenPointToLocalPointInRectangle (turnMarker, screenPos, Camera.main, out movePos);
+		return turnMarker.transform.TransformPoint (movePos);
 	}
 }

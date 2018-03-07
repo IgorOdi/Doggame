@@ -16,20 +16,23 @@ public class HeroAgent : BattleAgent {
 		actualInfo.crt = heroInfo.stats.crt;
 	}
 
-	private void OnMouseDown() {
-
-		if (BattleManager.instance.changing && BattleManager.instance.selectedHero != null) BattleManager.instance.selectedChange = this;
-	}
-
 	public void ChangeHUD(BattleAgent _agent) {
 
-		if (!BattleManager.instance.changing && BattleManager.instance.selectedHero != this) BattleManager.instance.selectedHero = this;
+		if (!BattleManager.instance.selecting && BattleManager.instance.selectedHero != this) BattleManager.instance.selectedHero = this;
 		HUDManager.instance.ChangeHeroHUD (actualInfo);
 	}
 
 	public override void VerifyAlive () {
 		
 		base.VerifyAlive ();
+
+		if (actualInfo != null && heroInfo != null) {
+		
+			hpBar.fillAmount = actualInfo.hp / heroInfo.stats.hp;
+			actualInfo.hp = Mathf.Clamp (actualInfo.hp, 0, heroInfo.stats.hp);
+		}
+
+		HUDManager.instance.ChangeHeroHUD (actualInfo);
 
 		if (actualInfo.hp <= 0) {
 
@@ -38,9 +41,6 @@ public class HeroAgent : BattleAgent {
 			BattleManager.instance.ReQueue (index);
 			if (BattleManager.instance.selectedHero == this) BattleManager.instance.selectedHero = null;
 		}
-
-		if (actualInfo != null && heroInfo != null)
-			hpBar.fillAmount = actualInfo.hp / heroInfo.stats.hp;
 	}
 
 	public override IEnumerator ChooseAction () {

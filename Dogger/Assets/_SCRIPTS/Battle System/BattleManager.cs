@@ -13,14 +13,12 @@ public class BattleManager : MonoBehaviour {
 	public List<int> turnQueue;
 	[HideInInspector]
 	public BattleAgent selectedHero;
+//	[HideInInspector]
+	public BattleAgent selectedTarget;
 	[HideInInspector]
-	public BattleAgent selectedChange;
-	[HideInInspector]
-	public BattleAgent selectedEnemy;
-	[HideInInspector]
-	public bool changing;
+	public bool selecting;
 
-	private int agentTurn;
+	public int agentTurn;
 
 	private int[] heroPositions = { -1, -3, -5, -7 };
 	private int[] enemyPositions = { 1, 3, 5, 7};
@@ -126,8 +124,7 @@ public class BattleManager : MonoBehaviour {
 				HUDManager.instance.ChangeHeroHUD (battleAgents [agentTurn].actualInfo);
 			} else {
 				
-				selectedEnemy = battleAgents [agentTurn];
-				HUDManager.instance.ChangeEnemyHUD (selectedEnemy.actualInfo);
+				HUDManager.instance.ChangeEnemyHUD (battleAgents[agentTurn].actualInfo);
 			}
 
 			StartCoroutine (battleAgents [agentTurn].ChooseAction ());
@@ -145,34 +142,37 @@ public class BattleManager : MonoBehaviour {
 
 	public IEnumerator ChangeOrder() {
 
-		changing = true;
+		selecting = true;
 
-		while (selectedHero == null || selectedChange == null)
+		while (selectedHero == null || selectedTarget == null)
 			yield return null;
 
 		float t = 0;
 		Vector2 a = selectedHero.transform.position;
-		Vector2 b = selectedChange.transform.position;
+		Vector2 b = selectedTarget.transform.position;
 
 		HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
 
 		while (t <= 1) {
 
 			selectedHero.transform.position = Vector2.Lerp (a, b, t);
-			selectedChange.transform.position = Vector2.Lerp (b, a, t);
+			selectedTarget.transform.position = Vector2.Lerp (b, a, t);
 			heroAgent.ChangeHUD (selectedHero);
 			t += Time.deltaTime * 2;
 			yield return null;
 		}
 
-		selectedChange = null;
-		changing = false;
+		selectedTarget = null;
+		selecting = false;
 	}
 
 	public void Action() {
 
-		if (selectedHero == battleAgents[agentTurn])
-			battleAgents [agentTurn].Attack (selectedEnemy);
+		if (selectedHero == battleAgents [agentTurn]) {
+
+			HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
+			heroAgent.heroInfo.skillList [0].CheckSkill (selectedHero, selectedTarget);
+		}
 	}
 
 	public void EndBattle() {

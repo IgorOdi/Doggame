@@ -16,5 +16,7 @@ MonoBehaviour:
     hp: 8
     atk: 4
     def: 2
-    spd: 1
+    spd: 10
     crt: 0.1
+  skillList:
+  - {fileID: 11400000, guid: 1a593f4f0c9914948b00fd696a944f24, type: 2}

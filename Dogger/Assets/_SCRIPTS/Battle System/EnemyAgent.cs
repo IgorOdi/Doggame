@@ -20,22 +20,21 @@ public class EnemyAgent : BattleAgent {
 
 		base.VerifyAlive ();
 
+		if (actualInfo != null && enemyInfo != null) {
+
+			hpBar.fillAmount = actualInfo.hp / enemyInfo.stats.hp;
+			actualInfo.hp = Mathf.Clamp (actualInfo.hp, 0, enemyInfo.stats.hp);
+		}
+
+		HUDManager.instance.ChangeEnemyHUD (actualInfo);
+
 		if (actualInfo.hp <= 0) {
 
 			int index = BattleManager.instance.enemyParty.FindIndex (d => d == this) + 4;
 			BattleManager.instance.enemyParty.Remove (this);
 			BattleManager.instance.ReQueue (index);
-			if (BattleManager.instance.selectedEnemy == this) BattleManager.instance.selectedEnemy = null;
+			if (BattleManager.instance.selectedTarget == this) BattleManager.instance.selectedTarget = null;
 		}
-			
-		if (actualInfo != null && enemyInfo != null)
-			hpBar.fillAmount = actualInfo.hp / enemyInfo.stats.hp;
-	}
-
-	private void OnMouseDown() {
-
-		if (BattleManager.instance.selectedEnemy != this) BattleManager.instance.selectedEnemy = this;
-		HUDManager.instance.ChangeEnemyHUD (BattleManager.instance.selectedEnemy.actualInfo);
 	}
 
 	public override IEnumerator ChooseAction () {
@@ -45,9 +44,7 @@ public class EnemyAgent : BattleAgent {
 			yield return null;
 
 		BattleAgent target = RandomizeTarget ();
-		Attack (target);
-		HUDManager.instance.ChangeHeroHUD (target.actualInfo);
-		BattleManager.instance.NextTurn ();
+		enemyInfo.skillList [0].CheckSkill (this, target);
 	}
 
 	BattleAgent RandomizeTarget() {

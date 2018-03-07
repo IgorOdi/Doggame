@@ -7,4 +7,5 @@ public class Hero : ScriptableObject {
 
 	public new string name;
 	public Stats stats;
+	public Skill[] skillList;
 }
