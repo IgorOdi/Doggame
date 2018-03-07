@@ -35,7 +35,7 @@ public class EnemyAgent : BattleAgent {
 	private void OnMouseDown() {
 
 		if (BattleManager.instance.selectedEnemy != this) BattleManager.instance.selectedEnemy = this;
-		HUDManager.instance.ChangeEnemyHUD ();
+		HUDManager.instance.ChangeEnemyHUD (BattleManager.instance.selectedEnemy.actualInfo);
 	}
 
 	public override IEnumerator ChooseAction () {

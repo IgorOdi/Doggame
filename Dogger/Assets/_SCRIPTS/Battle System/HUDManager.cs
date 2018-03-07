@@ -15,6 +15,9 @@ public class HUDManager : MonoBehaviour {
 	private Text[] statsText;
 
 	[SerializeField]
+	private Text[] enemyStatsText;
+
+	[SerializeField]
 	private RectTransform selectedHero;
 	[SerializeField]
 	private RectTransform selectedEnemy;
@@ -30,6 +33,7 @@ public class HUDManager : MonoBehaviour {
 		statsText [1].text = "ATK " + _heroStats.atk.ToString();
 		statsText [2].text = "DEF " + _heroStats.def.ToString();
 		statsText [3].text = "SPD " + _heroStats.spd.ToString();
+		statsText [4].text = "CRIT " + _heroStats.crt * 100 + "%";
 
 		bool active = BattleManager.instance.selectedHero != null ? true : false;
 		selectedHero.gameObject.SetActive (active);
@@ -43,7 +47,13 @@ public class HUDManager : MonoBehaviour {
 		}
 	}
 
-	public void ChangeEnemyHUD() {
+	public void ChangeEnemyHUD(Stats _enemyStats) {
+
+		enemyStatsText [0].text = "HP " + _enemyStats.hp.ToString();
+		enemyStatsText [1].text = "ATK " + _enemyStats.atk.ToString();
+		enemyStatsText [2].text = "DEF " + _enemyStats.def.ToString();
+		enemyStatsText [3].text = "SPD " + _enemyStats.spd.ToString();
+		enemyStatsText [4].text = "CRIT " + _enemyStats.crt * 100 + "%";
 
 		bool active = BattleManager.instance.selectedEnemy != null ? true : false;
 		selectedEnemy.gameObject.SetActive (active);

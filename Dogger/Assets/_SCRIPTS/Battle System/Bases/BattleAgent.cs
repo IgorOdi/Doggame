@@ -21,10 +21,8 @@ public class BattleAgent : MonoBehaviour {
 
 	public virtual void VerifyAlive() {
 
-		if (actualInfo.hp <= 0) {
-
+		if (actualInfo.hp <= 0)
 			gameObject.SetActive (false);
-		}
 	}
 
 	public virtual void Attack(BattleAgent _target) {
@@ -32,7 +30,7 @@ public class BattleAgent : MonoBehaviour {
 		float randomizador = Random.Range (0, 1);
 		int critMultiplier = randomizador > actualInfo.crt ? 2 : 1;
 
-		if (_target != null && _target.position < 1) {
+		if (_target != null) {
 			
 			int damage = (actualInfo.atk * critMultiplier) - _target.actualInfo.def;
 			_target.actualInfo.hp -= damage;

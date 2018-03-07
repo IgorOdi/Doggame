@@ -83,6 +83,12 @@ public class BattleManager : MonoBehaviour {
 
 		int activeAgents = heroParty.Count + enemyParty.Count;
 
+		for (int i = 0; i < maxEnemies; i++) {
+
+				HeroAgent heroAgent = battleAgents [i].GetComponent<HeroAgent> ();
+				heroAgent.actionMarker.SetActive (false);
+		}
+
 		while (turnQueue.Count < activeAgents) {
 			
 			for (int i = 0; i < maxAgents; i++) {
@@ -121,7 +127,7 @@ public class BattleManager : MonoBehaviour {
 			} else {
 				
 				selectedEnemy = battleAgents [agentTurn];
-				HUDManager.instance.ChangeEnemyHUD ();
+				HUDManager.instance.ChangeEnemyHUD (selectedEnemy.actualInfo);
 			}
 
 			StartCoroutine (battleAgents [agentTurn].ChooseAction ());

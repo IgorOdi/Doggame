@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeroAgent : BattleAgent {
 
 	public Hero heroInfo;
+	public GameObject actionMarker;
 
 	void OnEnable() {
 
@@ -47,8 +48,8 @@ public class HeroAgent : BattleAgent {
 		while (!acted)
 			yield return null;
 
+		actionMarker.SetActive (true);
 		acted = false;
-		
 		BattleManager.instance.NextTurn ();
 	}
 }
