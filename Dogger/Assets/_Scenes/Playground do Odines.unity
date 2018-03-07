@@ -793,6 +793,7 @@ MonoBehaviour:
   - {fileID: 600910112}
   heroParty: []
   enemyParty: []
+  turnQueue: 
   selectedHero: {fileID: 0}
   selectedChange: {fileID: 0}
   selectedEnemy: {fileID: 0}
@@ -858,7 +859,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 409432663}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -0.5, z: 0}
+  m_LocalPosition: {x: -5, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 825240929}
@@ -908,6 +909,7 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  position: 0
   hpBar: {fileID: 544114962}
   heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
 --- !u!1 &412703328
@@ -1226,6 +1228,7 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  position: 0
   hpBar: {fileID: 744113945}
   enemyInfo: {fileID: 0}
 --- !u!1 &643796979
@@ -1778,7 +1781,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 902006694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: -0.5, z: 0}
+  m_LocalPosition: {x: -7, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1485499619}
@@ -1828,6 +1831,7 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  position: 0
   hpBar: {fileID: 1605980208}
   heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
 --- !u!1 &919366763
@@ -2454,6 +2458,7 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  position: 0
   hpBar: {fileID: 1967762059}
   enemyInfo: {fileID: 0}
 --- !u!1 &1276468802
@@ -3250,6 +3255,7 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  position: 0
   hpBar: {fileID: 1198976752}
   enemyInfo: {fileID: 0}
 --- !u!1 &1565372559
@@ -3807,6 +3813,7 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  position: 0
   hpBar: {fileID: 1565372561}
   enemyInfo: {fileID: 0}
 --- !u!1 &1879612594
@@ -3833,7 +3840,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1879612594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: -0.5, z: 0}
+  m_LocalPosition: {x: -3, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1407101269}
@@ -3883,6 +3890,7 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  position: 0
   hpBar: {fileID: 1276468804}
   heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
 --- !u!1 &1937837336
@@ -4071,7 +4079,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1971386360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: -0.5, z: 0}
+  m_LocalPosition: {x: -1, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1445383478}
@@ -4121,6 +4129,7 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  position: 0
   hpBar: {fileID: 1400737329}
   heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
 --- !u!1 &2099019377

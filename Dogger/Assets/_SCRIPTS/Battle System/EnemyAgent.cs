@@ -16,9 +16,9 @@ public class EnemyAgent : BattleAgent {
 		actualInfo.crt = enemyInfo.stats.crt;
 	}
 
-	public override void Update () {
+	public override void VerifyAlive () {
 
-		base.Update ();
+		base.VerifyAlive ();
 
 		if (actualInfo.hp <= 0) {
 
@@ -40,8 +40,6 @@ public class EnemyAgent : BattleAgent {
 
 	public override IEnumerator ChooseAction () {
 
-		print (enemyInfo.name + " Turn");
-
 		float startTime = Time.time;
 		while (Time.time < startTime + chooseTime)
 			yield return null;
@@ -53,20 +51,10 @@ public class EnemyAgent : BattleAgent {
 	}
 
 	BattleAgent RandomizeTarget() {
+		
+		int randomizador = Random.Range (0, BattleManager.instance.heroParty.Count);
 
-		List<int> aliveHeroes = new List<int> ();
-
-		for (int i = 0; i < 4; i++) {
-
-			if (BattleManager.instance.battleAgents [i].gameObject.activeSelf) {
-
-				aliveHeroes.Add (i);
-			}
-		}
-
-		int randomizador = Random.Range (0, aliveHeroes.Count);
-
-		BattleAgent target = BattleManager.instance.battleAgents [randomizador];
+		BattleAgent target = BattleManager.instance.heroParty [randomizador];
 		return target;
 	}
 }

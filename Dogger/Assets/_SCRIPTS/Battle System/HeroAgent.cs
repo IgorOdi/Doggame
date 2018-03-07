@@ -14,17 +14,21 @@ public class HeroAgent : BattleAgent {
 		actualInfo.spd = heroInfo.stats.spd;
 		actualInfo.crt = heroInfo.stats.crt;
 	}
-		
+
 	private void OnMouseDown() {
 
-		if (!BattleManager.instance.changing && BattleManager.instance.selectedHero != this) BattleManager.instance.selectedHero = this;
 		if (BattleManager.instance.changing && BattleManager.instance.selectedHero != null) BattleManager.instance.selectedChange = this;
+	}
+
+	public void ChangeHUD(BattleAgent _agent) {
+
+		if (!BattleManager.instance.changing && BattleManager.instance.selectedHero != this) BattleManager.instance.selectedHero = this;
 		HUDManager.instance.ChangeHeroHUD (actualInfo);
 	}
 
-	public override void Update () {
+	public override void VerifyAlive () {
 		
-		base.Update ();
+		base.VerifyAlive ();
 
 		if (actualInfo.hp <= 0) {
 
@@ -39,8 +43,6 @@ public class HeroAgent : BattleAgent {
 	}
 
 	public override IEnumerator ChooseAction () {
-		
-		print (heroInfo.name + " Turn");
 
 		while (!acted)
 			yield return null;

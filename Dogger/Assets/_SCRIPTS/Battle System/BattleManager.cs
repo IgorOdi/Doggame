@@ -21,7 +21,11 @@ public class BattleManager : MonoBehaviour {
 	public bool changing;
 
 	private int agentTurn;
-	private int turn;
+
+	private int[] heroPositions = { -1, -3, -5, -7 };
+	private int[] enemyPositions = { 1, 3, 5, 7};
+
+	private const float yPos = -0.5f;
 
 	private const int maxEnemies = 4;
 	private const int maxAgents = 8;
@@ -40,16 +44,24 @@ public class BattleManager : MonoBehaviour {
 
 			if (i < maxEnemies) {
 
-				HeroAgent heroAgent = battleAgents [i].GetComponent<HeroAgent> ();
-				heroParty.Add (heroAgent);
+				if (battleAgents [i].gameObject.activeSelf) {
+					
+					HeroAgent heroAgent = battleAgents [i].GetComponent<HeroAgent> ();
+					heroParty.Add (heroAgent);
+					heroAgent.position = i;
+					battleAgents [i].transform.position = new Vector2 (heroPositions [i] - 0.5f, yPos);
+				}
 
 			} else {
 				
 				battleAgents [i].gameObject.SetActive (true);
 				EnemyAgent enemyAgent = battleAgents [i].GetComponent<EnemyAgent> ();
 				enemyAgent.enemyInfo = _enemies [i - maxEnemies];
+				enemyAgent.position = i - maxEnemies;
 				enemyAgent.DefineStats ();
 				enemyParty.Add (enemyAgent);
+
+				battleAgents [i].transform.position = new Vector2 (enemyPositions [i - maxEnemies] + 0.5f, yPos);
 			}
 		}
 			
@@ -65,7 +77,6 @@ public class BattleManager : MonoBehaviour {
 
 			if (battleAgents [i].gameObject.activeSelf) {
 
-				print (battleAgents [i].gameObject.name);
 				speedList.Add (battleAgents [i].actualInfo.spd);
 			}
 		}
@@ -88,8 +99,6 @@ public class BattleManager : MonoBehaviour {
 				}
 			}
 		}
-
-		turn = 0;
 	}
 
 	public void ReQueue(int index) {
@@ -101,18 +110,20 @@ public class BattleManager : MonoBehaviour {
 
 		if (turnQueue.Count > 0) {
 
-			agentTurn = turnQueue [turn];
+			agentTurn = turnQueue [0];
 			turnQueue.Remove (agentTurn);
 
 			if (agentTurn < maxEnemies) {
 
 				selectedHero = battleAgents [agentTurn];
+				battleAgents [agentTurn].GetComponent<HeroAgent> ().ChangeHUD (battleAgents[agentTurn]);
 				HUDManager.instance.ChangeHeroHUD (battleAgents [agentTurn].actualInfo);
 			} else {
-
+				
 				selectedEnemy = battleAgents [agentTurn];
 				HUDManager.instance.ChangeEnemyHUD ();
 			}
+
 			StartCoroutine (battleAgents [agentTurn].ChooseAction ());
 		} else {
 			
@@ -137,11 +148,14 @@ public class BattleManager : MonoBehaviour {
 		Vector2 a = selectedHero.transform.position;
 		Vector2 b = selectedChange.transform.position;
 
+		HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
+
 		while (t <= 1) {
 
 			selectedHero.transform.position = Vector2.Lerp (a, b, t);
 			selectedChange.transform.position = Vector2.Lerp (b, a, t);
-			t += Time.deltaTime;
+			heroAgent.ChangeHUD (selectedHero);
+			t += Time.deltaTime * 2;
 			yield return null;
 		}
 

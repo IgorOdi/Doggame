@@ -35,7 +35,7 @@ public class HUDManager : MonoBehaviour {
 		selectedHero.gameObject.SetActive (active);
 
 		if (BattleManager.instance.selectedHero != null) {
-			
+
 			Vector2 pos = worldToUISpace (BattleManager.instance.selectedHero.transform.position);
 			Vector2 newPos = selectedHero.transform.position;
 			newPos.x = pos.x;

@@ -14,7 +14,7 @@ MonoBehaviour:
   name: Slime Cat
   stats:
     hp: 8
-    atk: 32
+    atk: 3
     def: 2
     spd: 1
     crt: 0.1
