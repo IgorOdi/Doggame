@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d426811c9061bb4e81383775f47d7bd, type: 3}
   m_Name: SlimeCat
   m_EditorClassIdentifier: 
-  name: SlimeCat
+  name: Slime Cat
   stats:
     hp: 8
-    atk: 2
+    atk: 32
     def: 2
     spd: 1
     crt: 0.1

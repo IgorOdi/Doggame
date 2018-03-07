@@ -6,16 +6,22 @@ public class BattleManager : MonoBehaviour {
 
 	public static BattleManager instance;
 	public BattleAgent[] battleAgents;
-	public Queue<int> turnQueue;
 	public List<HeroAgent> heroParty = new List<HeroAgent> ();
 	public List<EnemyAgent> enemyParty = new List<EnemyAgent> ();
 
 	[HideInInspector]
+	public List<int> turnQueue;
+	[HideInInspector]
 	public BattleAgent selectedHero;
 	[HideInInspector]
+	public BattleAgent selectedChange;
+	[HideInInspector]
 	public BattleAgent selectedEnemy;
+	[HideInInspector]
+	public bool changing;
 
 	private int agentTurn;
+	private int turn;
 
 	private const int maxEnemies = 4;
 	private const int maxAgents = 8;
@@ -23,7 +29,7 @@ public class BattleManager : MonoBehaviour {
 	void Awake() {
 
 		if (instance == null) instance = this;
-		turnQueue = new Queue<int> ();
+		turnQueue = new List<int> ();
 	}
 
 	public void StartBattle(List<Enemy> _enemies) {
@@ -46,14 +52,6 @@ public class BattleManager : MonoBehaviour {
 				enemyParty.Add (enemyAgent);
 			}
 		}
-
-//		for (int i = maxEnemies; i < _enemies.Count + maxEnemies; i++) {
-//
-//			battleAgents [i].gameObject.SetActive (true);
-//			EnemyAgent enemyAgent = battleAgents [i].GetComponent<EnemyAgent> ();
-//			enemyAgent.enemyInfo = _enemies [i - maxEnemies];
-//			enemyAgent.DefineStats ();
-//		}
 			
 		EnqueueAgents ();
 		NextTurn ();
@@ -67,11 +65,12 @@ public class BattleManager : MonoBehaviour {
 
 			if (battleAgents [i].gameObject.activeSelf) {
 
+				print (battleAgents [i].gameObject.name);
 				speedList.Add (battleAgents [i].actualInfo.spd);
 			}
 		}
 
-		int activeAgents = speedList.Count;
+		int activeAgents = heroParty.Count + enemyParty.Count;
 
 		while (turnQueue.Count < activeAgents) {
 			
@@ -83,25 +82,71 @@ public class BattleManager : MonoBehaviour {
 
 					if (battleAgents [i].actualInfo.spd == higherValue) {
 
-						turnQueue.Enqueue (i);
+						turnQueue.Add (i);
 						speedList.Remove (higherValue);
 					}
 				}
 			}
 		}
+
+		turn = 0;
+	}
+
+	public void ReQueue(int index) {
+
+		turnQueue.Remove (index);
 	}
 
 	public void NextTurn() {
 
 		if (turnQueue.Count > 0) {
-			
-			agentTurn = turnQueue.Dequeue ();
+
+			agentTurn = turnQueue [turn];
+			turnQueue.Remove (agentTurn);
+
+			if (agentTurn < maxEnemies) {
+
+				selectedHero = battleAgents [agentTurn];
+				HUDManager.instance.ChangeHeroHUD (battleAgents [agentTurn].actualInfo);
+			} else {
+
+				selectedEnemy = battleAgents [agentTurn];
+				HUDManager.instance.ChangeEnemyHUD ();
+			}
 			StartCoroutine (battleAgents [agentTurn].ChooseAction ());
 		} else {
 			
 			EnqueueAgents ();
 			NextTurn ();
 		}
+	}
+
+	public void ActiveChange() {
+
+		StartCoroutine (ChangeOrder ());
+	}
+
+	public IEnumerator ChangeOrder() {
+
+		changing = true;
+
+		while (selectedHero == null || selectedChange == null)
+			yield return null;
+
+		float t = 0;
+		Vector2 a = selectedHero.transform.position;
+		Vector2 b = selectedChange.transform.position;
+
+		while (t <= 1) {
+
+			selectedHero.transform.position = Vector2.Lerp (a, b, t);
+			selectedChange.transform.position = Vector2.Lerp (b, a, t);
+			t += Time.deltaTime;
+			yield return null;
+		}
+
+		selectedChange = null;
+		changing = false;
 	}
 
 	public void Action() {

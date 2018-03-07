@@ -20,9 +20,14 @@ public class EnemyAgent : BattleAgent {
 
 		base.Update ();
 
-		if (actualInfo.hp <= 0)
-			BattleManager.instance.enemyParty.Remove (this);
+		if (actualInfo.hp <= 0) {
 
+			int index = BattleManager.instance.enemyParty.FindIndex (d => d == this) + 4;
+			BattleManager.instance.enemyParty.Remove (this);
+			BattleManager.instance.ReQueue (index);
+			if (BattleManager.instance.selectedEnemy == this) BattleManager.instance.selectedEnemy = null;
+		}
+			
 		if (actualInfo != null && enemyInfo != null)
 			hpBar.fillAmount = actualInfo.hp / enemyInfo.stats.hp;
 	}
@@ -30,6 +35,7 @@ public class EnemyAgent : BattleAgent {
 	private void OnMouseDown() {
 
 		if (BattleManager.instance.selectedEnemy != this) BattleManager.instance.selectedEnemy = this;
+		HUDManager.instance.ChangeEnemyHUD ();
 	}
 
 	public override IEnumerator ChooseAction () {

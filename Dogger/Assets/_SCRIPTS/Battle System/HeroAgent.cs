@@ -17,7 +17,8 @@ public class HeroAgent : BattleAgent {
 		
 	private void OnMouseDown() {
 
-		if (BattleManager.instance.selectedHero != this) BattleManager.instance.selectedHero = this;
+		if (!BattleManager.instance.changing && BattleManager.instance.selectedHero != this) BattleManager.instance.selectedHero = this;
+		if (BattleManager.instance.changing && BattleManager.instance.selectedHero != null) BattleManager.instance.selectedChange = this;
 		HUDManager.instance.ChangeHeroHUD (actualInfo);
 	}
 
@@ -25,8 +26,13 @@ public class HeroAgent : BattleAgent {
 		
 		base.Update ();
 
-		if (actualInfo.hp <= 0)
+		if (actualInfo.hp <= 0) {
+
+			int index = BattleManager.instance.heroParty.FindIndex (d => d == this);
 			BattleManager.instance.heroParty.Remove (this);
+			BattleManager.instance.ReQueue (index);
+			if (BattleManager.instance.selectedHero == this) BattleManager.instance.selectedHero = null;
+		}
 
 		if (actualInfo != null && heroInfo != null)
 			hpBar.fillAmount = actualInfo.hp / heroInfo.stats.hp;
@@ -40,6 +46,7 @@ public class HeroAgent : BattleAgent {
 			yield return null;
 
 		acted = false;
+		
 		BattleManager.instance.NextTurn ();
 	}
 }

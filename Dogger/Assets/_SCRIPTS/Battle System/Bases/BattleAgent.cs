@@ -28,7 +28,10 @@ public class BattleAgent : MonoBehaviour {
 
 	public virtual void Attack(BattleAgent _target) {
 
-		int damage = actualInfo.atk - _target.actualInfo.def;
+		float randomizador = Random.Range (0, 1);
+		int critMultiplier = randomizador > actualInfo.crt ? 2 : 1;
+
+		int damage = (actualInfo.atk * critMultiplier) - _target.actualInfo.def;
 		_target.actualInfo.hp -= damage;
 		acted = true;
 	}
