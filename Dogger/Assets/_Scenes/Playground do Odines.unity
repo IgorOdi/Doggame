@@ -742,6 +742,8 @@ MonoBehaviour:
   door: {fileID: 0}
   numberOfWalls: 11
   wallPrefab: {fileID: 1237162969278410, guid: 56ac57916602f134fb0a147bea97ccb4, type: 2}
+  doorPrefab: {fileID: 0}
+  localId: 0
 --- !u!114 &222668596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,7 +756,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 3
-  heroes: {fileID: 412703329}
+  startCorridor: {fileID: 0}
+  startRoom: {fileID: 0}
+  corridorsT: []
 --- !u!1 &364986489
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +803,12 @@ MonoBehaviour:
   selectedTarget: {fileID: 0}
   selecting: 0
   agentTurn: 0
+  skillButton:
+  - {fileID: 2108684507}
+  - {fileID: 1702066929}
+  - {fileID: 722372115}
+  - {fileID: 463594816}
+  changeButton: {fileID: 1286144381}
 --- !u!4 &364986491
 Transform:
   m_ObjectHideFlags: 0

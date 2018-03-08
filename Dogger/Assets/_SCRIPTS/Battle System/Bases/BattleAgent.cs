@@ -10,12 +10,25 @@ public class BattleAgent : MonoBehaviour {
 	public Image hpBar;
 	protected bool acted;
 
+	private void OnMouseOver() {
+
+		if (BattleManager.instance.selecting) {
+
+			bool ally = BattleManager.instance.heroParty.Contains (this.GetComponent<HeroAgent> ());
+
+			if ((BattleManager.instance.allySkill && !ally) || (!BattleManager.instance.allySkill && ally))
+					HUDManager.instance.ChangeTargetHUD (this);
+		}
+	}
+
 	private void OnMouseDown() {
 
 		if (BattleManager.instance.selecting) {
-			
-			BattleManager.instance.selectedTarget = this;
-			HUDManager.instance.ChangeTargetHUD (this);
+
+			bool ally = BattleManager.instance.heroParty.Contains (this.GetComponent<HeroAgent> ());
+
+			if ((BattleManager.instance.allySkill && !ally) || (!BattleManager.instance.allySkill && ally))
+				BattleManager.instance.selectedTarget = this;
 		}
 	}
 

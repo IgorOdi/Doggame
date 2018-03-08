@@ -33,6 +33,7 @@ public class EnemyAgent : BattleAgent {
 			int index = BattleManager.instance.enemyParty.FindIndex (d => d == this) + 4;
 			BattleManager.instance.enemyParty.Remove (this);
 			BattleManager.instance.ReQueue (index, position, false);
+			HUDManager.instance.ChangeTargetHUD (null);
 			if (BattleManager.instance.selectedTarget == this) BattleManager.instance.selectedTarget = null;
 		}
 	}
@@ -43,13 +44,16 @@ public class EnemyAgent : BattleAgent {
 		while (Time.time < startTime + chooseTime)
 			yield return null;
 
-		BattleAgent target = RandomizeTarget ();
-		enemyInfo.skillList [0].CheckSkill (this, target);
+		int randomizeSkill = Random.Range (0, enemyInfo.skillList.Length);
+		int skillRange = enemyInfo.skillList [randomizeSkill].range;
+		BattleAgent target = RandomizeTarget (skillRange);
+		enemyInfo.skillList [randomizeSkill].CheckSkill (this, target);
 	}
 
-	BattleAgent RandomizeTarget() {
+	BattleAgent RandomizeTarget(int _skillRange) {
 		
-		int randomizador = Random.Range (0, BattleManager.instance.heroParty.Count);
+		int randomizador = Random.Range (0, _skillRange);
+		randomizador = Mathf.Clamp (randomizador, 0, BattleManager.instance.heroParty.Count);
 
 		BattleAgent target = BattleManager.instance.heroParty [randomizador];
 		return target;

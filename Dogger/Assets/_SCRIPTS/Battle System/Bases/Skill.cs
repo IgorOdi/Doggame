@@ -10,13 +10,22 @@ public enum SkillType {
 	DEBUFF
 }
 
-public enum RangeType {
+public enum TargetType {
 
 	OneTarget,
 	MultiTarget
 }
 
-[CreateAssetMenu(fileName = "New Skill", menuName ="Skills")]
+public enum EffectType {
+
+	NULL,
+	ATK,
+	DEF,
+	SPD,
+	CRIT
+}
+
+[CreateAssetMenu(fileName = "New Skill", menuName = "Skills")]
 public class Skill : ScriptableObject {
 
 	public new string name;
@@ -24,7 +33,8 @@ public class Skill : ScriptableObject {
 	public int range;
 	public int cooldown;
 	public SkillType skillType;
-	public RangeType rangeType;
+	public TargetType targetType;
+	public EffectType effectType;
 
 	public void CheckSkill(BattleAgent _user, BattleAgent _target) {
 
@@ -42,19 +52,19 @@ public class Skill : ScriptableObject {
 
 		case SkillType.BUFF:
 
-			Buff ();
+			Buff (_user, _target);
 			break;
 
 		case SkillType.DEBUFF:
 
-			Debuff ();
+			Debuff (_user, _target);
 			break;
 		}
 	}
 
 	private void Attack(BattleAgent _attacker, BattleAgent _target) {
 
-		if (_target != null) {
+		if (_target != null && _target.position < range) {
 
 			float randomizador = Random.Range (0f, 1f);
 			int _damage = effect;
@@ -63,7 +73,7 @@ public class Skill : ScriptableObject {
 			if (_damage == 0)
 				_damage = _attacker.actualInfo.atk - _target.actualInfo.def;
 
-			if (rangeType == RangeType.OneTarget) {
+			if (targetType == TargetType.OneTarget) {
 
 				_target.actualInfo.hp -= _damage * critMultiplier;
 
@@ -92,7 +102,7 @@ public class Skill : ScriptableObject {
 
 		if (_target != null) {
 
-			if (rangeType == RangeType.OneTarget) {
+			if (targetType == TargetType.OneTarget) {
 				
 				_target.actualInfo.hp += effect;
 			} else {
@@ -116,22 +126,76 @@ public class Skill : ScriptableObject {
 		EndAction (_healer, _target);
 	}
 
-	private void Buff () {
+	private void Buff (BattleAgent _buffer, BattleAgent _target) {
 
+		if (_target != null) {
+
+			if (targetType == TargetType.OneTarget) {
+
+				switch (effectType) {
+
+				case EffectType.ATK:
+
+					_target.actualInfo.atk += effect;
+					break;
+
+				case EffectType.DEF:
+
+					_target.actualInfo.def += effect;
+					break;
+
+				case EffectType.SPD:
+
+					_target.actualInfo.spd += effect;
+					break;
+
+				case EffectType.CRIT:
+
+					_target.actualInfo.crt += effect;
+					break;
+				}
+			}
+		}
 	}
 
-	private void Debuff() {
+	private void Debuff(BattleAgent _debuffer, BattleAgent _target) {
 
+		if (_target != null) {
+
+			if (targetType == TargetType.OneTarget) {
+
+				switch (effectType) {
+
+				case EffectType.ATK:
+
+					_target.actualInfo.atk -= effect;
+					break;
+
+				case EffectType.DEF:
+
+					_target.actualInfo.def -= effect;
+					break;
+
+				case EffectType.SPD:
+
+					_target.actualInfo.spd -= effect;
+					break;
+
+				case EffectType.CRIT:
+
+					_target.actualInfo.crt -= effect;
+					break;
+				}
+			}
+		}
 	}
 
 	private void EndAction(BattleAgent _user, BattleAgent _target) {
 
 		for (int i = 0; i < BattleManager.instance.battleAgents.Length; i++) {
 
-			if (BattleManager.instance.battleAgents [i].gameObject.activeSelf) {
-
+			if (BattleManager.instance.battleAgents [i].gameObject.activeSelf)
 				BattleManager.instance.battleAgents [i].VerifyAlive ();
-			}
 		}
 
 		BattleManager.instance.NextTurn ();

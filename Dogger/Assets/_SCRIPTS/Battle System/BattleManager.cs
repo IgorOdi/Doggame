@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour {
 
@@ -17,8 +18,15 @@ public class BattleManager : MonoBehaviour {
 	public BattleAgent selectedTarget;
 	[HideInInspector]
 	public bool selecting;
-
+	[HideInInspector]
 	public int agentTurn;
+	[HideInInspector]
+	public bool allySkill;
+
+	[SerializeField]
+	private Button[] skillButton;
+	[SerializeField]
+	private Button changeButton;
 
 	private int[] heroPositions = { -1, -3, -5, -7 };
 	private int[] enemyPositions = { 1, 3, 5, 7};
@@ -28,10 +36,45 @@ public class BattleManager : MonoBehaviour {
 	private const int maxEnemies = 4;
 	private const int maxAgents = 8;
 
-	void Awake() {
+	private void Awake() {
 
 		if (instance == null) instance = this;
 		turnQueue = new List<int> ();
+
+		ConfigureButtons ();
+	}
+
+	private void ConfigureButtons() {
+
+		skillButton [0].onClick.AddListener (delegate {
+
+			if (selectedHero == battleAgents [agentTurn])
+				StartCoroutine (Action (0));
+		});
+
+		skillButton [1].onClick.AddListener (delegate {
+
+			if (selectedHero == battleAgents [agentTurn])
+				StartCoroutine (Action (1));
+		});
+
+		skillButton [2].onClick.AddListener (delegate {
+
+			if (selectedHero == battleAgents [agentTurn])
+				StartCoroutine (Action (2));
+		});
+
+		skillButton [3].onClick.AddListener (delegate {
+
+			if (selectedHero == battleAgents [agentTurn])
+				StartCoroutine (Action (3));
+		});
+
+		changeButton.onClick.AddListener (delegate {
+
+			if (selectedHero == battleAgents [agentTurn])
+				StartCoroutine (ChangeOrder ());
+		});
 	}
 
 	public void StartBattle(List<Enemy> _enemies) {
@@ -122,6 +165,7 @@ public class BattleManager : MonoBehaviour {
 				HUDManager.instance.ChangeEnemyHUD (battleAgents[agentTurn].actualInfo);
 			}
 
+			HUDManager.instance.ChangeTurnHUD ();
 			StartCoroutine (battleAgents [agentTurn].ChooseAction ());
 		} else {
 			
@@ -130,32 +174,24 @@ public class BattleManager : MonoBehaviour {
 		}
 	}
 
-	public void Action() {
-
-		StartCoroutine (DoAction ());
-	}
-
-	public IEnumerator DoAction() {
+	public IEnumerator Action(int index) {
 
 		selecting = true;
+
+		HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
+		allySkill = heroAgent.heroInfo.skillList [index].skillType == SkillType.ATTACK ||
+			heroAgent.heroInfo.skillList [index].skillType == SkillType.DEBUFF ? true : false;
 
 		while (selectedTarget == null)
 			yield return null;
 
 		if (selectedHero == battleAgents [agentTurn]) {
 
-			HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
-			heroAgent.heroInfo.skillList [0].CheckSkill (selectedHero, selectedTarget);
+			heroAgent.heroInfo.skillList [index].CheckSkill (selectedHero, selectedTarget);
 			selecting = false;
 			selectedTarget = null;
 			HUDManager.instance.ChangeTargetHUD (null);
 		}
-	}
-
-	public void ActiveChange() {
-
-		if (selectedHero == battleAgents[agentTurn])
-			StartCoroutine (ChangeOrder ());
 	}
 
 	public void ReQueue(int index, int position, bool hero) {
@@ -196,6 +232,7 @@ public class BattleManager : MonoBehaviour {
 
 			tr.localPosition = Vector2.Lerp (a, b, t);
 			t += Time.deltaTime * 2;
+			HUDManager.instance.ChangeTurnHUD ();
 			yield return null;
 		}
 	}
@@ -219,12 +256,13 @@ public class BattleManager : MonoBehaviour {
 			int bPosition = selectedTarget.position;
 
 			HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
+			heroAgent.ChangeHUD (selectedHero);
 
 			while (t < 1) {
 
 				selectedHero.transform.localPosition = Vector2.Lerp (a, b, t);
 				selectedTarget.transform.localPosition = Vector2.Lerp (b, a, t);
-				heroAgent.ChangeHUD (selectedHero);
+				HUDManager.instance.ChangeTurnHUD ();
 				t += Time.deltaTime * 2;
 				yield return null;
 			}

@@ -33,8 +33,6 @@ public class HUDManager : MonoBehaviour {
 		statsText [2].text = "DEF " + _heroStats.def.ToString();
 		statsText [3].text = "SPD " + _heroStats.spd.ToString();
 		statsText [4].text = "CRIT " + _heroStats.crt * 100 + "%";
-
-		ChangeTurnHUD ();
 	}
 
 	public void ChangeEnemyHUD(Stats _enemyStats) {
@@ -44,13 +42,11 @@ public class HUDManager : MonoBehaviour {
 		enemyStatsText [2].text = "DEF " + _enemyStats.def.ToString();
 		enemyStatsText [3].text = "SPD " + _enemyStats.spd.ToString();
 		enemyStatsText [4].text = "CRIT " + _enemyStats.crt * 100 + "%";
-
-		ChangeTurnHUD ();
 	}
 
 	public void ChangeTargetHUD(BattleAgent selectedAgent) {
 
-		bool active = BattleManager.instance.selectedTarget != null ? true : false;
+		bool active = selectedAgent != null ? true : false;
 		targetMarker.gameObject.SetActive (active);
 
 		if (selectedAgent != null) {
@@ -65,7 +61,7 @@ public class HUDManager : MonoBehaviour {
 		}
 	}
 
-	private void ChangeTurnHUD() {
+	public void ChangeTurnHUD() {
 
 		turnMarker.gameObject.SetActive (true);
 
