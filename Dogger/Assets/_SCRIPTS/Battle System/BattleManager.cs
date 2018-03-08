@@ -179,8 +179,7 @@ public class BattleManager : MonoBehaviour {
 		selecting = true;
 
 		HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
-		allySkill = heroAgent.heroInfo.skillList [index].skillType == SkillType.ATTACK ||
-			heroAgent.heroInfo.skillList [index].skillType == SkillType.DEBUFF ? true : false;
+		allySkill = heroAgent.heroInfo.skillList [index].skillType == SkillType.ATTACK ? true : false;
 
 		while (selectedTarget == null)
 			yield return null;

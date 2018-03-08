@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Name: PugHeal
   m_EditorClassIdentifier: 
   name: Pug Heal
-  effect: 4
+  value: 5
+  effect: 0
   range: 0
   cooldown: 0
   skillType: 1
-  rangeType: 1
+  targetType: 0
+  effectType: 0

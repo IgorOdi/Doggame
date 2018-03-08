@@ -5,9 +5,7 @@ using UnityEngine;
 public enum SkillType {
 
 	ATTACK,
-	HEAL,
-	BUFF,
-	DEBUFF
+	HEAL
 }
 
 public enum TargetType {
@@ -29,6 +27,7 @@ public enum EffectType {
 public class Skill : ScriptableObject {
 
 	public new string name;
+	public int value;
 	public int effect;
 	public int range;
 	public int cooldown;
@@ -49,16 +48,6 @@ public class Skill : ScriptableObject {
 
 			Heal (_user, _target);
 			break;
-
-		case SkillType.BUFF:
-
-			Buff (_user, _target);
-			break;
-
-		case SkillType.DEBUFF:
-
-			Debuff (_user, _target);
-			break;
 		}
 	}
 
@@ -67,7 +56,7 @@ public class Skill : ScriptableObject {
 		if (_target != null && _target.position < range) {
 
 			float randomizador = Random.Range (0f, 1f);
-			int _damage = effect;
+			int _damage = value;
 			int critMultiplier = randomizador > _attacker.actualInfo.crt ? 2 : 1;
 
 			if (_damage == 0)
@@ -87,12 +76,15 @@ public class Skill : ScriptableObject {
 					}
 				} else {
 
-					for (int i = 0; i < BattleManager.instance.enemyParty.Count; i++) {
+					for (int i = 0; i < BattleManager.instance.heroParty.Count; i++) {
 
 						BattleManager.instance.heroParty [i].actualInfo.hp -= _damage * critMultiplier;
 					}
 				}
 			}
+
+			if (effectType != null)
+				Debuff (_attacker, _target);
 
 			EndAction (_attacker, _target);
 		}
@@ -121,6 +113,9 @@ public class Skill : ScriptableObject {
 					}
 				}
 			}
+
+			if (effectType != null)
+				Buff (_healer, _target);
 		}
 
 		EndAction (_healer, _target);
@@ -160,7 +155,7 @@ public class Skill : ScriptableObject {
 
 	private void Debuff(BattleAgent _debuffer, BattleAgent _target) {
 
-		if (_target != null) {
+		if (_target != null && _target.position < range) {
 
 			if (targetType == TargetType.OneTarget) {
 
