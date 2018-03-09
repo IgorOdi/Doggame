@@ -16,6 +16,7 @@ public class EnemyAgent : BattleAgent {
 		actualInfo.crt = enemyInfo.stats.crt;
 
 		skillCooldown = new int[enemyInfo.skillList.Length];
+		VerifyAlive ();
 	}
 
 	public override void VerifyAlive () {
