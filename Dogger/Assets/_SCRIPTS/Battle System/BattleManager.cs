@@ -10,7 +10,7 @@ public class BattleManager : MonoBehaviour {
 	public List<HeroAgent> heroParty = new List<HeroAgent> ();
 	public List<EnemyAgent> enemyParty = new List<EnemyAgent> ();
 
-//	[HideInInspector]
+	[HideInInspector]
 	public List<int> turnQueue;
 	[HideInInspector]
 	public BattleAgent selectedHero;
@@ -28,12 +28,15 @@ public class BattleManager : MonoBehaviour {
 	[SerializeField]
 	private Button changeButton;
 
+	[HideInInspector]
+	public int[] heroPositions = { -1, -3, -5, -7 };
+	[HideInInspector]
+	public int[] enemyPositions = { 1, 3, 5, 7};
+
+	[HideInInspector]
+	public float yPos = -1f;
+
 	private int turn;
-
-	private int[] heroPositions = { -1, -3, -5, -7 };
-	private int[] enemyPositions = { 1, 3, 5, 7};
-
-	private const float yPos = -1f;
 
 	private const int maxEnemies = 4;
 	private const int maxAgents = 8;
@@ -89,12 +92,18 @@ public class BattleManager : MonoBehaviour {
 
 			if (i < maxEnemies) {
 
+				int index = PartyManager.instance.partyList.FindIndex (d => d == battleAgents [i].name);
+
 				if (battleAgents [i].gameObject.activeSelf) {
 					
 					HeroAgent heroAgent = battleAgents [i].GetComponent<HeroAgent> ();
+					heroAgent.actualInfo.hp = PartyManager.instance.hpPoints [i];
 					heroParty.Add (heroAgent);
-					heroAgent.position = i;
-					battleAgents [i].transform.localPosition = new Vector2 (heroPositions [i], yPos);
+
+					if (index >= 0) {
+						heroAgent.position = index;
+						battleAgents [i].transform.localPosition = new Vector2 (heroPositions [index], yPos);
+					}
 				}
 
 			} else {
@@ -256,6 +265,7 @@ public class BattleManager : MonoBehaviour {
 
 	public IEnumerator ChangeOrder() {
 
+		allySkill = false;
 		selecting = true;
 
 		while ((selectedHero == null || selectedTarget == null))
@@ -283,6 +293,14 @@ public class BattleManager : MonoBehaviour {
 				yield return null;
 			}
 
+			string nameA = selectedHero.name;
+			string nameB = selectedTarget.name;
+
+			int indexA = PartyManager.instance.partyList.FindIndex (d => d == nameA);
+			int indexB = PartyManager.instance.partyList.FindIndex (d => d == nameB);
+			PartyManager.instance.partyList [indexA] = nameB;
+			PartyManager.instance.partyList [indexB] = nameA;
+
 			selectedHero.position = bPosition;
 			selectedTarget.position = aPosition;
 
@@ -296,13 +314,21 @@ public class BattleManager : MonoBehaviour {
 	public void EndBattle() {
 
 		if (heroParty.Count > 0) {
-			
+
+			for (int i = 0; i < maxEnemies; i++) {
+
+				HeroAgent heroAgent = battleAgents [i].GetComponent<HeroAgent> ();
+				PartyManager.instance.hpPoints [i] = heroAgent.actualInfo.hp;
+				PartyManager.instance.hpBar [i].fillAmount = PartyManager.instance.hpPoints[i] / heroAgent.heroInfo.stats.hp;
+			}
+
 			selecting = false;
 			selectedHero = null;
 			selectedTarget = null;
 			heroParty.Clear ();
 			enemyParty.Clear ();
 			turnQueue.Clear ();
+			PartyManager.instance.PositioningGoodBoys ();
 			HUDManager.instance.ChangeTargetHUD (null);
 			HUDManager.instance.DeactivateTurnHUD ();
 			GameManager.instance.FadeOffBattle ();

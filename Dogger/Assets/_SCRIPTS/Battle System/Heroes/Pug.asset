@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pug
   stats:
-    hp: 10
+    hp: 16
     atk: 4
-    def: 2
-    spd: 3
-    crt: 0.5
+    def: 3
+    spd: 2
+    crt: 0.2
   skillList:
   - {fileID: 11400000, guid: 1a593f4f0c9914948b00fd696a944f24, type: 2}
   - {fileID: 11400000, guid: 3d384605201795a4c9e9eccf07aad200, type: 2}

@@ -39,6 +39,7 @@ public class HeroAgent : BattleAgent {
 		if (actualInfo.hp <= 0) {
 
 			int index = BattleManager.instance.heroParty.FindIndex (d => d == this);
+			PartyManager.instance.partyList.Remove (heroInfo.name);
 			BattleManager.instance.heroParty.Remove (this);
 			BattleManager.instance.ReQueue (index, position, true);
 			if (BattleManager.instance.selectedHero == this) BattleManager.instance.selectedHero = null;

@@ -53,7 +53,9 @@ public class Skill : ScriptableObject {
 
 	private void Attack(BattleAgent _attacker, BattleAgent _target) {
 
-		if (_target != null && _target.position < range) {
+		if (_target != null) {
+
+			Debug.Log(_attacker.name + " atacou");
 
 			float randomizador = Random.Range (0f, 1f);
 			int _damage = value;
@@ -61,6 +63,9 @@ public class Skill : ScriptableObject {
 
 			if (_damage == 0)
 				_damage = _attacker.actualInfo.atk - _target.actualInfo.def;
+
+			if (_damage <= 0)
+				_damage = 1;
 
 			if (targetType == TargetType.OneTarget) {
 

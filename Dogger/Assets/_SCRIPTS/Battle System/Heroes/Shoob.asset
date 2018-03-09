@@ -8,15 +8,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d426811c9061bb4e81383775f47d7bd, type: 3}
-  m_Name: NormalCat
+  m_Script: {fileID: 11500000, guid: 053ccaedcff521c49962c2d492808091, type: 3}
+  m_Name: Shoob
   m_EditorClassIdentifier: 
-  name: Normal Cat
+  name: Shoob
   stats:
-    hp: 4
-    atk: 12
-    def: 1
-    spd: 5
-    crt: 0.2
+    hp: 20
+    atk: 2
+    def: 4
+    spd: 1
+    crt: 0.3
   skillList:
   - {fileID: 11400000, guid: 1a593f4f0c9914948b00fd696a944f24, type: 2}
