@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour {
 
 	bool reachedMaxPos;
 	bool reachedMinPos;
-	bool canMove = true;
+	public static bool canMove = true;
 
 	GameObject[] corridors;
 	RectTransform HUD;
@@ -75,13 +75,17 @@ public class Movement : MonoBehaviour {
 			if (Input.GetMouseButton (0)) {
 				//Anda pra Direita
 				if (Input.mousePosition.x >= Screen.width / 2) {
-					if (!reachedMaxPos)
+					if (!reachedMaxPos) {
 						corridorToMove.position += Vector3.left * Time.deltaTime * walkSpeed;
+						LevelManager.instance.deltaSpace += walkSpeed * Time.deltaTime;
+					}
 				}
 			//Anda pra Esquerda
 			else {
-					if (!reachedMinPos)
+					if (!reachedMinPos) {
 						corridorToMove.position += Vector3.right * Time.deltaTime * walkSpeed;
+						LevelManager.instance.deltaSpace += walkSpeed * Time.deltaTime;
+					}
 				}
 
 			}
@@ -96,7 +100,6 @@ public class Movement : MonoBehaviour {
 				}
 			}
 		}
-
 	}
 
 	void LateUpdate() {

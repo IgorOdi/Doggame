@@ -74,6 +74,11 @@ public class HUDManager : MonoBehaviour {
 		turnMarker.transform.position = newPos;
 	}
 
+	public void DeactivateTurnHUD() {
+
+		turnMarker.gameObject.SetActive (false);
+	}
+
 	public Vector2 worldToUISpace(Vector2 worldPos) {
 
 		Vector2 screenPos = Camera.main.WorldToScreenPoint (worldPos);

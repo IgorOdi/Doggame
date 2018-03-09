@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class BattleAgent : MonoBehaviour {
 
 	public Stats actualInfo;
+	public int[] skillCooldown;
+
 	public int position;
 	public Image hpBar;
-	protected bool acted;
+	public Animator anim;
 
+	protected bool acted;
+		
 	private void OnMouseOver() {
 
 		if (BattleManager.instance.selecting) {

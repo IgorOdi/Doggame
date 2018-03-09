@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Normal Cat
   stats:
-    hp: 10
-    atk: 2
+    hp: 30
+    atk: 4
     def: 1
-    spd: 9
+    spd: 5
     crt: 0.2
   skillList:
   - {fileID: 11400000, guid: 1a593f4f0c9914948b00fd696a944f24, type: 2}

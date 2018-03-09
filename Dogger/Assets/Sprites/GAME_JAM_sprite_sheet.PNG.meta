@@ -1,0 +1,782 @@
+fileFormatVersion: 2
+guid: a6255ea4ec677c24dbbca8f486987a6a
+timeCreated: 1520553879
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GAME_JAM_sprite_sheet_0
+    21300002: GAME_JAM_sprite_sheet_1
+    21300004: GAME_JAM_sprite_sheet_2
+    21300006: GAME_JAM_sprite_sheet_3
+    21300008: GAME_JAM_sprite_sheet_4
+    21300010: GAME_JAM_sprite_sheet_6
+    21300012: GAME_JAM_sprite_sheet_8
+    21300014: GAME_JAM_sprite_sheet_9
+    21300016: GAME_JAM_sprite_sheet_10
+    21300018: GAME_JAM_sprite_sheet_11
+    21300020: GAME_JAM_sprite_sheet_12
+    21300022: GAME_JAM_sprite_sheet_13
+    21300024: GAME_JAM_sprite_sheet_14
+    21300026: GAME_JAM_sprite_sheet_15
+    21300028: GAME_JAM_sprite_sheet_16
+    21300030: GAME_JAM_sprite_sheet_17
+    21300032: GAME_JAM_sprite_sheet_18
+    21300034: GAME_JAM_sprite_sheet_19
+    21300036: GAME_JAM_sprite_sheet_20
+    21300038: GAME_JAM_sprite_sheet_21
+    21300040: GAME_JAM_sprite_sheet_22
+    21300042: GAME_JAM_sprite_sheet_23
+    21300044: GAME_JAM_sprite_sheet_25
+    21300046: GAME_JAM_sprite_sheet_26
+    21300048: GAME_JAM_sprite_sheet_27
+    21300050: GAME_JAM_sprite_sheet_28
+    21300052: GAME_JAM_sprite_sheet_29
+    21300054: GAME_JAM_sprite_sheet_30
+    21300056: GAME_JAM_sprite_sheet_32
+    21300058: GAME_JAM_sprite_sheet_35
+    21300060: GAME_JAM_sprite_sheet_36
+    21300062: GAME_JAM_sprite_sheet_37
+    21300064: GAME_JAM_sprite_sheet_38
+    21300066: GAME_JAM_sprite_sheet_39
+    21300068: GAME_JAM_sprite_sheet_40
+    21300070: GAME_JAM_sprite_sheet_41
+    21300072: GAME_JAM_sprite_sheet_42
+    21300074: GAME_JAM_sprite_sheet_43
+    21300076: GAME_JAM_sprite_sheet_44
+    21300078: GAME_JAM_sprite_sheet_47
+    21300080: GAME_JAM_sprite_sheet_49
+    21300082: GAME_JAM_sprite_sheet_50
+    21300084: GAME_JAM_sprite_sheet_51
+    21300086: GAME_JAM_sprite_sheet_52
+    21300088: GAME_JAM_sprite_sheet_53
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1602
+        width: 213
+        height: 143
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 1610
+        width: 214
+        height: 142
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 1600
+        width: 213
+        height: 142
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 1609
+        width: 213
+        height: 143
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 1588
+        width: 339
+        height: 265
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 1565
+        width: 517
+        height: 377
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1427
+        width: 213
+        height: 142
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1424
+        width: 213
+        height: 135
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 1427
+        width: 214
+        height: 137
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1425
+        width: 214
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 1426
+        width: 163
+        height: 109
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 1166
+        width: 235
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1166
+        width: 235
+        height: 204
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 1166
+        width: 235
+        height: 206
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1166
+        width: 235
+        height: 207
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 1159
+        width: 199
+        height: 119
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 1127
+        width: 324
+        height: 278
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 1122
+        width: 472
+        height: 300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 928
+        width: 235
+        height: 212
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 925
+        width: 235
+        height: 210
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 928
+        width: 235
+        height: 212
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 925
+        width: 235
+        height: 210
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 702
+        width: 174
+        height: 205
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 701
+        width: 178
+        height: 203
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 698
+        width: 180
+        height: 203
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 701
+        width: 178
+        height: 202
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 580
+        width: 351
+        height: 326
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 597
+        width: 449
+        height: 375
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 705
+        width: 220
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_35
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 463
+        width: 170
+        height: 205
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_36
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 462
+        width: 178
+        height: 202
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_37
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 460
+        width: 178
+        height: 202
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_38
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 462
+        width: 177
+        height: 202
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_39
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 186
+        width: 335
+        height: 325
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_40
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 271
+        width: 126
+        height: 144
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_41
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 271
+        width: 126
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_42
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 271
+        width: 126
+        height: 139
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_43
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 271
+        width: 126
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 217
+        width: 385
+        height: 239
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_47
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 270
+        width: 158
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_49
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 59
+        width: 126
+        height: 143
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_50
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 60
+        width: 127
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_51
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 59
+        width: 127
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_52
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 58
+        width: 127
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_sprite_sheet_53
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 35
+        width: 315
+        height: 135
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

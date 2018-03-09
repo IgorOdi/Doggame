@@ -10,7 +10,7 @@ public class BattleManager : MonoBehaviour {
 	public List<HeroAgent> heroParty = new List<HeroAgent> ();
 	public List<EnemyAgent> enemyParty = new List<EnemyAgent> ();
 
-	[HideInInspector]
+//	[HideInInspector]
 	public List<int> turnQueue;
 	[HideInInspector]
 	public BattleAgent selectedHero;
@@ -28,10 +28,12 @@ public class BattleManager : MonoBehaviour {
 	[SerializeField]
 	private Button changeButton;
 
+	private int turn;
+
 	private int[] heroPositions = { -1, -3, -5, -7 };
 	private int[] enemyPositions = { 1, 3, 5, 7};
 
-	private const float yPos = -0.5f;
+	private const float yPos = -1f;
 
 	private const int maxEnemies = 4;
 	private const int maxAgents = 8;
@@ -81,6 +83,8 @@ public class BattleManager : MonoBehaviour {
 
 		//canMove = false;
 
+		GameManager.instance.FadeToBattle ();
+
 		for (int i = 0; i < _enemies.Count + maxEnemies; i++) {
 
 			if (i < maxEnemies) {
@@ -105,7 +109,8 @@ public class BattleManager : MonoBehaviour {
 				battleAgents [i].transform.localPosition = new Vector2 (enemyPositions [i - maxEnemies], yPos);
 			}
 		}
-			
+
+		turn = 0;
 		EnqueueAgents ();
 		NextTurn ();
 	}
@@ -150,36 +155,47 @@ public class BattleManager : MonoBehaviour {
 		
 	public void NextTurn() {
 
-		if (turnQueue.Count > 0) {
+		if (heroParty.Count > 0 && enemyParty.Count > 0) {
 
-			agentTurn = turnQueue [0];
-			turnQueue.Remove (agentTurn);
+			if (turnQueue.Count > 0) {
 
-			if (agentTurn < maxEnemies) {
+				agentTurn = turnQueue [0];
+				turnQueue.Remove (agentTurn);
 
-				selectedHero = battleAgents [agentTurn];
-				battleAgents [agentTurn].GetComponent<HeroAgent> ().ChangeHUD (battleAgents[agentTurn]);
-				HUDManager.instance.ChangeHeroHUD (battleAgents [agentTurn].actualInfo);
-			} else {
+				if (agentTurn < maxEnemies) {
+
+					selectedHero = battleAgents [agentTurn];
+					battleAgents [agentTurn].GetComponent<HeroAgent> ().ChangeHUD (battleAgents [agentTurn]);
+					HUDManager.instance.ChangeHeroHUD (battleAgents [agentTurn].actualInfo);
+				} else {
 				
-				HUDManager.instance.ChangeEnemyHUD (battleAgents[agentTurn].actualInfo);
-			}
+					HUDManager.instance.ChangeEnemyHUD (battleAgents [agentTurn].actualInfo);
+				}
 
-			HUDManager.instance.ChangeTurnHUD ();
-			StartCoroutine (battleAgents [agentTurn].ChooseAction ());
+				HUDManager.instance.ChangeTurnHUD ();
+				StartCoroutine (battleAgents [agentTurn].ChooseAction ());
+			} else {
+
+				turn++;
+				EnqueueAgents ();
+				NextTurn ();
+			}
 		} else {
-			
-			EnqueueAgents ();
-			NextTurn ();
+
+			EndBattle ();
 		}
 	}
 
 	public IEnumerator Action(int index) {
 
-		selecting = true;
-
 		HeroAgent heroAgent = selectedHero.GetComponent<HeroAgent> ();
-		allySkill = heroAgent.heroInfo.skillList [index].skillType == SkillType.ATTACK ? true : false;
+		Skill selectedSkill = heroAgent.heroInfo.skillList [index];
+		allySkill = selectedSkill.skillType == SkillType.ATTACK ? true : false;
+
+		bool canUse = heroAgent.skillCooldown[index] <= turn ? true : false;
+
+		if (canUse)
+			selecting = true;
 
 		while (selectedTarget == null)
 			yield return null;
@@ -187,6 +203,7 @@ public class BattleManager : MonoBehaviour {
 		if (selectedHero == battleAgents [agentTurn]) {
 
 			heroAgent.heroInfo.skillList [index].CheckSkill (selectedHero, selectedTarget);
+			heroAgent.skillCooldown [index] += selectedSkill.cooldown;
 			selecting = false;
 			selectedTarget = null;
 			HUDManager.instance.ChangeTargetHUD (null);
@@ -272,11 +289,27 @@ public class BattleManager : MonoBehaviour {
 			selectedTarget = null;
 			HUDManager.instance.ChangeTargetHUD (null);
 			selecting = false;
+			NextTurn ();
 		}
 	}
 
 	public void EndBattle() {
 
+		if (heroParty.Count > 0) {
+			
+			selecting = false;
+			selectedHero = null;
+			selectedTarget = null;
+			heroParty.Clear ();
+			enemyParty.Clear ();
+			turnQueue.Clear ();
+			HUDManager.instance.ChangeTargetHUD (null);
+			HUDManager.instance.DeactivateTurnHUD ();
+			GameManager.instance.FadeOffBattle ();
+		} else {
 
+			print ("Game Over");
+//			GameManager.GameOver ();
+		}
 	}
 }

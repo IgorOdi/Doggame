@@ -14,6 +14,8 @@ public class HeroAgent : BattleAgent {
 		actualInfo.def = heroInfo.stats.def;
 		actualInfo.spd = heroInfo.stats.spd;
 		actualInfo.crt = heroInfo.stats.crt;
+
+		skillCooldown = new int[heroInfo.skillList.Length];
 	}
 
 	public void ChangeHUD(BattleAgent _agent) {

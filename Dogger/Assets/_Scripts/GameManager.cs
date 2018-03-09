@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
 
 
 	public Transform heroesT;
+	public GameObject explroerHeroes;
+	public GameObject battleHeroes;
 	Vector3 screenCenter;
 
 
@@ -83,5 +85,19 @@ public class GameManager : MonoBehaviour {
 
 	public void GoToCorridor (Transform corridorPos) {
 		GameManager.instance.heroesT.position = corridorPos.position;
+	}
+
+	public void FadeToBattle() {
+
+		Movement.canMove = false;
+		explroerHeroes.SetActive (false);
+		battleHeroes.SetActive (true);
+	}
+
+	public void FadeOffBattle() {
+
+		Movement.canMove = true;
+		explroerHeroes.SetActive (true);
+		battleHeroes.SetActive (false);
 	}
 }

@@ -803,6 +803,7 @@ MonoBehaviour:
   selectedTarget: {fileID: 0}
   selecting: 0
   agentTurn: 0
+  allySkill: 0
   skillButton:
   - {fileID: 2108684507}
   - {fileID: 1702066929}
@@ -864,7 +865,7 @@ GameObject:
   - component: {fileID: 409432666}
   - component: {fileID: 409432665}
   m_Layer: 0
-  m_Name: HeroC
+  m_Name: Beagle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -927,8 +928,46 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  skillList:
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
   position: 0
   hpBar: {fileID: 544114962}
+  anim: {fileID: 825240930}
   heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
   actionMarker: {fileID: 1110800140}
 --- !u!1 &412703328
@@ -1247,8 +1286,46 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  skillList:
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
   position: 0
   hpBar: {fileID: 744113945}
+  anim: {fileID: 0}
   enemyInfo: {fileID: 0}
 --- !u!1 &643796979
 GameObject:
@@ -1697,7 +1774,7 @@ Animator:
   m_GameObject: {fileID: 825240928}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd401b6ccb9aae846b8585aa64060375, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2409eef1ac944994587f1a636dea9e27, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1738,9 +1815,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 341022c5b97aa3541834437a9ce0bbd9, type: 3}
-  m_Color: {r: 0.2242214, g: 0.5955882, b: 0.13137974, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300068, guid: a6255ea4ec677c24dbbca8f486987a6a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1997,7 +2074,7 @@ GameObject:
   - component: {fileID: 902006697}
   - component: {fileID: 902006696}
   m_Layer: 0
-  m_Name: HeroD
+  m_Name: Shiba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2060,8 +2137,46 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  skillList:
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
   position: 0
   hpBar: {fileID: 1605980208}
+  anim: {fileID: 1485499620}
   heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
   actionMarker: {fileID: 652791053}
 --- !u!1 &919366763
@@ -2940,8 +3055,46 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  skillList:
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
   position: 0
   hpBar: {fileID: 1967762059}
+  anim: {fileID: 0}
   enemyInfo: {fileID: 0}
 --- !u!1 &1276468802
 GameObject:
@@ -3312,7 +3465,7 @@ Animator:
   m_GameObject: {fileID: 1407101268}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd401b6ccb9aae846b8585aa64060375, type: 2}
+  m_Controller: {fileID: 9100000, guid: 836f5c7c55628404f899cee4b6b5d263, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3353,9 +3506,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 341022c5b97aa3541834437a9ce0bbd9, type: 3}
-  m_Color: {r: 0.64705884, g: 0.09039794, b: 0.09039794, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300022, guid: a6255ea4ec677c24dbbca8f486987a6a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3403,7 +3556,7 @@ Animator:
   m_GameObject: {fileID: 1445383477}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd401b6ccb9aae846b8585aa64060375, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6262cf888222d1340bfb1baef61daca6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3444,8 +3597,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 341022c5b97aa3541834437a9ce0bbd9, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: a6255ea4ec677c24dbbca8f486987a6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3537,7 +3690,7 @@ Animator:
   m_GameObject: {fileID: 1485499618}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd401b6ccb9aae846b8585aa64060375, type: 2}
+  m_Controller: {fileID: 9100000, guid: fddb3ee92029b9742b3a909b7afe1df6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3578,9 +3731,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 341022c5b97aa3541834437a9ce0bbd9, type: 3}
-  m_Color: {r: 0.19312286, g: 0.32021233, b: 0.6911765, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300044, guid: a6255ea4ec677c24dbbca8f486987a6a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3885,8 +4038,46 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  skillList:
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
   position: 0
   hpBar: {fileID: 1198976752}
+  anim: {fileID: 0}
   enemyInfo: {fileID: 0}
 --- !u!1 &1565372559
 GameObject:
@@ -4592,8 +4783,46 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  skillList:
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
   position: 0
   hpBar: {fileID: 1565372561}
+  anim: {fileID: 0}
   enemyInfo: {fileID: 0}
 --- !u!1 &1879612594
 GameObject:
@@ -4606,7 +4835,7 @@ GameObject:
   - component: {fileID: 1879612597}
   - component: {fileID: 1879612596}
   m_Layer: 0
-  m_Name: HeroB
+  m_Name: Shoob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4669,8 +4898,46 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  skillList:
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
   position: 0
   hpBar: {fileID: 1276468804}
+  anim: {fileID: 1407101270}
   heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
   actionMarker: {fileID: 1115385533}
 --- !u!1 &1937837336
@@ -4846,7 +5113,7 @@ GameObject:
   - component: {fileID: 1971386363}
   - component: {fileID: 1971386362}
   m_Layer: 0
-  m_Name: HeroA
+  m_Name: Pug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4909,8 +5176,46 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  skillList:
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
+  - name: 
+    value: 0
+    effect: 0
+    range: 0
+    cooldown: 0
+    skillType: 0
+    targetType: 0
+    effectType: 0
+    lastUse: 0
   position: 0
   hpBar: {fileID: 1400737329}
+  anim: {fileID: 1445383479}
   heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
   actionMarker: {fileID: 958289302}
 --- !u!1 &2099019377

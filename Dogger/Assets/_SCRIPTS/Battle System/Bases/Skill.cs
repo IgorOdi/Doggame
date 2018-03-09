@@ -66,6 +66,12 @@ public class Skill : ScriptableObject {
 
 				_target.actualInfo.hp -= _damage * critMultiplier;
 
+				if (_target.anim != null)
+				_target.anim.SetTrigger ("Hit");
+
+				if (_attacker.anim != null)
+				_attacker.anim.SetTrigger ("Attack");
+
 			} else {
 
 				if (BattleManager.instance.heroParty.Contains (_attacker.GetComponent<HeroAgent> ())) {
@@ -83,7 +89,7 @@ public class Skill : ScriptableObject {
 				}
 			}
 
-			if (effectType != null)
+			if (effectType != EffectType.NULL)
 				Debuff (_attacker, _target);
 
 			EndAction (_attacker, _target);
@@ -96,25 +102,25 @@ public class Skill : ScriptableObject {
 
 			if (targetType == TargetType.OneTarget) {
 				
-				_target.actualInfo.hp += effect;
+				_target.actualInfo.hp += value;
 			} else {
 
 				if (BattleManager.instance.heroParty.Contains (_healer.GetComponent<HeroAgent> ())) {
 
 					for (int i = 0; i < BattleManager.instance.heroParty.Count; i++) {
 					
-						BattleManager.instance.heroParty [i].actualInfo.hp += effect;
+						BattleManager.instance.heroParty [i].actualInfo.hp += value;
 					}
 				} else {
 
 					for (int i = 0; i < BattleManager.instance.enemyParty.Count; i++) {
 
-						BattleManager.instance.enemyParty [i].actualInfo.hp += effect;
+						BattleManager.instance.enemyParty [i].actualInfo.hp += value;
 					}
 				}
 			}
 
-			if (effectType != null)
+			if (effectType != EffectType.NULL)
 				Buff (_healer, _target);
 		}
 
@@ -127,26 +133,28 @@ public class Skill : ScriptableObject {
 
 			if (targetType == TargetType.OneTarget) {
 
+				int _effect = effect;
+
 				switch (effectType) {
 
 				case EffectType.ATK:
 
-					_target.actualInfo.atk += effect;
+					_target.actualInfo.atk += _effect;
 					break;
 
 				case EffectType.DEF:
 
-					_target.actualInfo.def += effect;
+					_target.actualInfo.def += _effect;
 					break;
 
 				case EffectType.SPD:
 
-					_target.actualInfo.spd += effect;
+					_target.actualInfo.spd += _effect;
 					break;
 
 				case EffectType.CRIT:
 
-					_target.actualInfo.crt += effect;
+					_target.actualInfo.crt += _effect;
 					break;
 				}
 			}
@@ -159,26 +167,28 @@ public class Skill : ScriptableObject {
 
 			if (targetType == TargetType.OneTarget) {
 
+				int _effect = effect;
+
 				switch (effectType) {
 
 				case EffectType.ATK:
 
-					_target.actualInfo.atk -= effect;
+					_target.actualInfo.atk -= _effect;
 					break;
 
 				case EffectType.DEF:
 
-					_target.actualInfo.def -= effect;
+					_target.actualInfo.def -= _effect;
 					break;
 
 				case EffectType.SPD:
 
-					_target.actualInfo.spd -= effect;
+					_target.actualInfo.spd -= _effect;
 					break;
 
 				case EffectType.CRIT:
 
-					_target.actualInfo.crt -= effect;
+					_target.actualInfo.crt -= _effect;
 					break;
 				}
 			}
