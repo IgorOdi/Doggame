@@ -300,7 +300,7 @@ MonoBehaviour:
   position: 0
   hpBar: {fileID: 114998354004991882}
   anim: {fileID: 95327532109595770}
-  heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
+  heroInfo: {fileID: 11400000, guid: 216caf40a4945d045b7d0c404958413a, type: 2}
   actionMarker: {fileID: 1674210822310104}
 --- !u!114 &114232532702120734
 MonoBehaviour:

@@ -14,7 +14,7 @@ MonoBehaviour:
   name: Normal Cat
   stats:
     hp: 12
-    atk: 3
+    atk: 10
     def: 1
     spd: 4
     crt: 0.4

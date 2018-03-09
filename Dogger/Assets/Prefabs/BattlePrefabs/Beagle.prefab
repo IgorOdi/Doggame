@@ -421,7 +421,7 @@ MonoBehaviour:
   position: 0
   hpBar: {fileID: 114101739506091326}
   anim: {fileID: 95496222883716190}
-  heroInfo: {fileID: 11400000, guid: 2b6d31f18e40d5a48b0b6ff1cf72842b, type: 2}
+  heroInfo: {fileID: 11400000, guid: 28430aac063e2804db156ee1403a7723, type: 2}
   actionMarker: {fileID: 1489563290575168}
 --- !u!212 &212024263387575766
 SpriteRenderer:

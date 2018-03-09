@@ -16,4 +16,5 @@ MonoBehaviour:
   screamSound:
   - {fileID: 8300000, guid: 2c6c892632f3b5a4785b7d09d06a3f22, type: 3}
   - {fileID: 8300000, guid: 68b5e9acec8a64643bec325cdc18f537, type: 3}
-  dieSound: []
+  dieSound:
+  - {fileID: 8300000, guid: bdd59de65c6faff43b2bb1b554f47c92, type: 3}
