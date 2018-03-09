@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour {
 	public int nextRoom;
 
 
+	public Transform[] roomPositions;
+	public Transform[] corridorPositions;
+
 	public Transform heroesT;
 	public GameObject explroerHeroes;
 	public GameObject battleHeroes;
@@ -38,10 +41,20 @@ public class GameManager : MonoBehaviour {
 		GameManager.instance.currentLocation = "";
 
 	}
-	
+
+	void Start () {
+		roomPositions = GameObject.Find ("Room Positions").transform.GetComponentsInChildren<Transform> ();
+		corridorPositions = GameObject.Find ("Corridor Positions").transform.GetComponentsInChildren<Transform> ();
+
+		nextRoom = 2;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		UpdateHeroesPosition ();
+		print (currentRoom + "-" + nextRoom);
+
+
 	}
 
 	void UpdateHeroesPosition() {
@@ -63,6 +76,9 @@ public class GameManager : MonoBehaviour {
 				
 				GameManager.instance.currentLocation = "Room";
 
+				string[] hitRoomName = hit.transform.parent.name.Split (new string[] { "_" }, System.StringSplitOptions.None);
+				currentRoom = int.Parse (hitRoomName [1]);
+
 				for (int i = 0; i < corridorsT.Length; i++) {
 					corridorsT [i].anchoredPosition = new Vector2 (0, corridorsT [i].anchoredPosition.y);
 				}
@@ -79,12 +95,30 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene (sceneName);
 	}
 
-	public void GoToRoom (Transform roomPosition) {
-		GameManager.instance.heroesT.position = roomPosition.position;
+	public void GoToRoom (GameObject obj) {
+		if (obj.name == "StartDoor") {
+			GameManager.instance.heroesT.position = GameManager.instance.roomPositions [GameManager.instance.currentRoom].position;
+			print("Going to  " + GameManager.instance.currentRoom);
+		} else if (obj.name == "EndDoor") {
+			GameManager.instance.heroesT.position = GameManager.instance.roomPositions [GameManager.instance.nextRoom].position;
+			print("Going to  " + GameManager.instance.nextRoom);
+		}
 	}
 
-	public void GoToCorridor (Transform corridorPos) {
-		GameManager.instance.heroesT.position = corridorPos.position;
+	public void GoToCorridor (int _nextRoom) {
+
+		Vector3 newPos = Vector3.right * 50;
+
+		GameManager.instance.nextRoom = _nextRoom;
+
+		string posName = GameManager.instance.currentRoom + "-" + GameManager.instance.nextRoom;
+
+		for (int i = 0; i < GameManager.instance.corridorPositions.Length; i++) {
+			print (GameManager.instance.corridorPositions [i].name);
+			if (GameManager.instance.corridorPositions[i].name == posName) {
+				GameManager.instance.heroesT.position = GameManager.instance.corridorPositions [i].position;
+			}
+		}
 	}
 
 	public void FadeToBattle() {

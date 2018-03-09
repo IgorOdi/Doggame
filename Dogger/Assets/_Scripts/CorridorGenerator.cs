@@ -9,7 +9,8 @@ public class CorridorGenerator : MonoBehaviour {
 	public Sprite door;
 	public int numberOfWalls = 1;
 	public GameObject wallPrefab;
-	public GameObject doorPrefab;
+	public GameObject startDoorPrefab;
+	public GameObject endDoorPrefab;
 
 	public int localId;
 
@@ -17,11 +18,11 @@ public class CorridorGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//GenerateCorridor ();
+		GenerateCorridor ();
 	}
 
 	void GenerateCorridor () {
-		print (localId + "  " + gameObject.name);
+		
 		Corridor corridor = new Corridor(numberOfWalls, walls, door, wallPrefab, gameObject);
 		GameManager.instance.corridorList.Add (corridor);
 		corridor.id = localId;
@@ -45,12 +46,13 @@ public class CorridorGenerator : MonoBehaviour {
 			lastImage = spriteIndex;
 		}
 
-		GameObject startDoor = Instantiate (doorPrefab, transform, false);
+		GameObject startDoor = Instantiate (startDoorPrefab, transform, false);
 		startDoor.transform.localPosition = Vector3.zero;
 		startDoor.name = "Wall_0";
 		startDoor.GetComponent<Image>().sprite = door;
 
-		GameObject endDoor = Instantiate (doorPrefab, transform, false);
+
+		GameObject endDoor = Instantiate (endDoorPrefab, transform, false);
 		endDoor.transform.localPosition = Vector3.right * (numberOfWalls + 1) * 720;
 		endDoor.name = "Wall_" + (numberOfWalls + 1);
 		endDoor.GetComponent<Image>().sprite = door;

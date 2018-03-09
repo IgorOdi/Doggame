@@ -59,6 +59,9 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		lastPos = corridorToMove.position;
+		rectT = corridorToMove.gameObject.GetComponent<RectTransform> ();
+		camMax = (((corridorToMove.gameObject.GetComponent<CorridorGenerator> ().numberOfWalls + 1) * 720) - 240) * -1;
+		print (GameManager.instance.currentLocation);
 
 		if (GameManager.instance.currentLocation == "Corridor" && canMove) {
 
@@ -81,7 +84,7 @@ public class Movement : MonoBehaviour {
 					}
 				}
 			//Anda pra Esquerda
-			else {
+				else {
 					if (!reachedMinPos) {
 						corridorToMove.position += Vector3.right * Time.deltaTime * walkSpeed;
 						LevelManager.instance.deltaSpace += walkSpeed * Time.deltaTime;
@@ -99,13 +102,15 @@ public class Movement : MonoBehaviour {
 					an [i].SetBool ("Walking", false);
 				}
 			}
+		} 
+
+		else {
+			reachedMaxPos = reachedMinPos = false;
 		}
 	}
 
 	void LateUpdate() {
 		cameraT.position = GameManager.instance.heroesT.position + Vector3.forward * -10;
 		HUD.position = GameManager.instance.heroesT.position + Vector3.forward * 10;
-		print (HUD.position + "   " + HUD.anchoredPosition);	
-
 	}
 }
