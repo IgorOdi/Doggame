@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a58ff51a8037154aa3ae1f8824f93a5, type: 3}
+  m_Name: BeagleSoundpack
+  m_EditorClassIdentifier: 
+  attackSound:
+  - {fileID: 8300000, guid: 77d0e081863fa21489700775f4a0377b, type: 3}
+  screamSound:
+  - {fileID: 8300000, guid: 2c6c892632f3b5a4785b7d09d06a3f22, type: 3}
+  - {fileID: 8300000, guid: 68b5e9acec8a64643bec325cdc18f537, type: 3}
+  dieSound:
+  - {fileID: 8300000, guid: bdd59de65c6faff43b2bb1b554f47c92, type: 3}

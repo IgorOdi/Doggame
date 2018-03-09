@@ -1184,6 +1184,8 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  soundpack: {fileID: 0}
+  source: {fileID: 0}
   skillCooldown: 
   position: 0
   hpBar: {fileID: 1572527932}
@@ -3406,6 +3408,8 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  soundpack: {fileID: 0}
+  source: {fileID: 0}
   skillCooldown: 
   position: 0
   hpBar: {fileID: 132644787}
@@ -4380,6 +4384,8 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  soundpack: {fileID: 0}
+  source: {fileID: 0}
   skillCooldown: 
   position: 0
   hpBar: {fileID: 928542251}
@@ -4860,6 +4866,8 @@ MonoBehaviour:
     def: 0
     spd: 0
     crt: 0
+  soundpack: {fileID: 0}
+  source: {fileID: 0}
   skillCooldown: 
   position: 0
   hpBar: {fileID: 1569334406}

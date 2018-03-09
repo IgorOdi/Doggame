@@ -36,7 +36,6 @@ public class PartyManager : MonoBehaviour {
 		for (int i = 0; i < 4; i++) {
 
 			int index = partyList.FindIndex (d => d == BattleManager.instance.battleAgents [i].name);
-			HeroAgent heroAgent = BattleManager.instance.battleAgents [i].GetComponent<HeroAgent> ();
 
 			if (index >= 0) {
 				BattleManager.instance.battleAgents [i].position = index;

@@ -19,4 +19,4 @@ MonoBehaviour:
     spd: 3
     crt: 0
   skillList:
-  - {fileID: 11400000, guid: 1a593f4f0c9914948b00fd696a944f24, type: 2}
+  - {fileID: 11400000, guid: 09f0770d5da35744780a2773ec1db621, type: 2}

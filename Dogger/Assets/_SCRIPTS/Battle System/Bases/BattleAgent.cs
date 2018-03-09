@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class BattleAgent : MonoBehaviour {
 
 	public Stats actualInfo;
+	public Soundpack soundpack;
+	public AudioSource source;
+	[HideInInspector]
 	public int[] skillCooldown;
-
+	[HideInInspector]
 	public int position;
 	public Image hpBar;
 	public Animator anim;
@@ -48,12 +51,29 @@ public class BattleAgent : MonoBehaviour {
 	public virtual void VerifyAlive() {
 
 		if (actualInfo.hp <= 0) {
-			gameObject.SetActive (false);
+			
 
 			if (BattleManager.instance.selectedTarget == this) {
 				BattleManager.instance.selectedTarget = null;
 				HUDManager.instance.ChangeTargetHUD (null);
 			}
+
+			StartCoroutine (Die ());
 		}
+	}
+
+	public IEnumerator Die() {
+
+		if (soundpack != null) {
+			
+			source.clip = soundpack.dieSound [0];
+			source.Play ();
+		}
+
+		float startTime = Time.time;
+		while (Time.time < startTime + 1f)
+			yield return null;
+
+		gameObject.SetActive (false);
 	}
 }
