@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 267ee21ccf63fda40a7220e5fe285b7c, type: 3}
-  m_Name: PugBasic
+  m_Name: Shiba Magic
   m_EditorClassIdentifier: 
-  name: PugBasic
+  name: Shiba Magic
   value: 0
   effect: 0
-  range: 1
-  cooldown: 1
+  range: 4
+  cooldown: 0
   skillType: 0
   targetType: 0
   effectType: 0

@@ -5,7 +5,8 @@ using UnityEngine;
 public enum SkillType {
 
 	ATTACK,
-	HEAL
+	HEAL,
+	AUTOBUFF
 }
 
 public enum TargetType {
@@ -35,6 +36,7 @@ public class Skill : ScriptableObject {
 	public TargetType targetType;
 	public EffectType effectType;
 
+
 	public void CheckSkill(BattleAgent _user, BattleAgent _target) {
 
 		switch (skillType) {
@@ -48,14 +50,17 @@ public class Skill : ScriptableObject {
 
 			Heal (_user, _target);
 			break;
+
+		case SkillType.AUTOBUFF:
+
+			Autobuff (_user);
+			break;
 		}
 	}
 
 	private void Attack(BattleAgent _attacker, BattleAgent _target) {
 
 		if (_target != null) {
-
-			Debug.Log(_attacker.name + " atacou");
 
 			float randomizador = Random.Range (0f, 1f);
 			int _damage = value;
@@ -76,6 +81,20 @@ public class Skill : ScriptableObject {
 
 				if (_attacker.anim != null)
 				_attacker.anim.SetTrigger ("Attack");
+				_attacker.GetComponentInChildren<SpriteRenderer> ().sortingOrder = 10;
+
+				if (_attacker.soundpack != null) {
+
+					_attacker.source.clip = _attacker.soundpack.attackSound [0];
+					_attacker.source.Play ();
+				}
+
+				if (_target.source != null) {
+
+					int randomizer = Random.Range (0, _target.soundpack.screamSound.Length);
+					_target.source.clip = _target.soundpack.screamSound [randomizer];
+					_target.source.Play ();
+				}
 
 			} else {
 
@@ -136,39 +155,72 @@ public class Skill : ScriptableObject {
 
 		if (_target != null) {
 
-			if (targetType == TargetType.OneTarget) {
+			int _effect = effect;
 
-				int _effect = effect;
+			switch (effectType) {
 
-				switch (effectType) {
+			case EffectType.ATK:
 
-				case EffectType.ATK:
-
+				if (targetType == TargetType.OneTarget) {
+					
 					_target.actualInfo.atk += _effect;
-					break;
+				} else {
 
-				case EffectType.DEF:
+					for (int i = 0; i < BattleManager.instance.heroParty.Count; i++) {
+
+						BattleManager.instance.heroParty [i].actualInfo.atk += effect;
+					}
+				}
+				break;
+
+			case EffectType.DEF:
+
+				if (targetType == TargetType.OneTarget) {
 
 					_target.actualInfo.def += _effect;
-					break;
+				} else {
 
-				case EffectType.SPD:
+					for (int i = 0; i < BattleManager.instance.heroParty.Count; i++) {
+
+						BattleManager.instance.heroParty [i].actualInfo.def += effect;
+					}
+				}
+				break;
+
+			case EffectType.SPD:
+
+				if (targetType == TargetType.OneTarget) {
 
 					_target.actualInfo.spd += _effect;
-					break;
+				} else {
 
-				case EffectType.CRIT:
+					for (int i = 0; i < BattleManager.instance.heroParty.Count; i++) {
+
+						BattleManager.instance.heroParty [i].actualInfo.spd += effect;
+					}
+				}
+				break;
+
+			case EffectType.CRIT:
+
+				if (targetType == TargetType.OneTarget) {
 
 					_target.actualInfo.crt += _effect;
-					break;
+				} else {
+
+					for (int i = 0; i < BattleManager.instance.heroParty.Count; i++) {
+
+						BattleManager.instance.heroParty [i].actualInfo.crt += effect;
+					}
 				}
+				break;
 			}
 		}
 	}
 
 	private void Debuff(BattleAgent _debuffer, BattleAgent _target) {
 
-		if (_target != null && _target.position < range) {
+		if (_target != null) {
 
 			if (targetType == TargetType.OneTarget) {
 
@@ -197,6 +249,34 @@ public class Skill : ScriptableObject {
 					break;
 				}
 			}
+		}
+	}
+
+	private void Autobuff(BattleAgent _buffer) {
+
+		int _effect = effect;
+
+		switch (effectType) {
+
+			case EffectType.ATK:
+
+				_buffer.actualInfo.atk += _effect;
+				break;
+
+			case EffectType.DEF:
+
+				_buffer.actualInfo.def += _effect;
+				break;
+
+			case EffectType.SPD:
+
+				_buffer.actualInfo.spd += _effect;
+				break;
+
+			case EffectType.CRIT:
+
+				_buffer.actualInfo.crt += _effect;
+				break;
 		}
 	}
 

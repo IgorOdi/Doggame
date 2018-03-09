@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class BattleAgent : MonoBehaviour {
 
 	public Stats actualInfo;
+	public Soundpack soundpack;
+	public AudioSource source;
+	[HideInInspector]
 	public int[] skillCooldown;
-
+	[HideInInspector]
 	public int position;
 	public Image hpBar;
 	public Animator anim;

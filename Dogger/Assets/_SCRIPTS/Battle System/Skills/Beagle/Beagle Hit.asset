@@ -8,15 +8,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 053ccaedcff521c49962c2d492808091, type: 3}
-  m_Name: Pug
+  m_Script: {fileID: 11500000, guid: 267ee21ccf63fda40a7220e5fe285b7c, type: 3}
+  m_Name: Beagle Hit
   m_EditorClassIdentifier: 
-  name: Pug
-  stats:
-    hp: 16
-    atk: 4
-    def: 3
-    spd: 2
-    crt: 0.2
-  skillList:
-  - {fileID: 11400000, guid: 1a593f4f0c9914948b00fd696a944f24, type: 2}
+  name: Beagle Hit
+  value: 0
+  effect: 0
+  range: 4
+  cooldown: 0
+  skillType: 0
+  targetType: 0
+  effectType: 0
