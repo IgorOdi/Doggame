@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-	
+
+	public int gold;
+
+
 	public int currentCorridor;
 	public List<Corridor> corridorList = new List<Corridor>();
 	public RectTransform[] corridorsT;
@@ -12,7 +15,6 @@ public class GameManager : MonoBehaviour {
 	public int currentWall;
 	public int currentRoom;
 	public int nextRoom;
-
 
 	public Transform[] roomPositions;
 	public Transform[] corridorPositions;
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour {
 
 	public string currentLocation;
 
+	public bool sceneLoaded;
+
 	// Use this for initialization
 	void OnEnable () {
 		if (instance == null) instance = this;
@@ -40,6 +44,7 @@ public class GameManager : MonoBehaviour {
 
 		GameManager.instance.currentLocation = "";
 
+		gold = 500;
 	}
 
 	void Start () {
@@ -56,6 +61,7 @@ public class GameManager : MonoBehaviour {
 
 
 	}
+		
 
 	void UpdateHeroesPosition() {
 
@@ -91,9 +97,6 @@ public class GameManager : MonoBehaviour {
 		Debug.DrawRay (screenCenter, Vector3.forward * 25f);
 	}
 
-	public void LoadScene(string sceneName) {
-		SceneManager.LoadScene (sceneName);
-	}
 
 	public void GoToRoom (GameObject obj) {
 		if (obj.name == "StartDoor") {
@@ -133,5 +136,31 @@ public class GameManager : MonoBehaviour {
 		Movement.canMove = true;
 		explroerHeroes.SetActive (true);
 		battleHeroes.SetActive (false);
+	}
+
+
+	public void OnChangeScene(string sceneName) {
+		sceneLoaded = false;
+		if (sceneName != SceneManager.GetActiveScene().name && !sceneLoaded) {
+			StartCoroutine (ChangeScene(sceneName));
+		}
+	}
+
+
+	IEnumerator ChangeScene(string sceneName) {
+		sceneLoaded = true;
+
+		SceneManager.LoadScene ("Loading");
+
+		yield return new WaitForSeconds (0.2f);
+
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync (sceneName);
+
+		while (!asyncLoad.isDone) {
+			yield return null;
+		}
+
+		sceneLoaded = false;
+
 	}
 }
