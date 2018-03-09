@@ -233,6 +233,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4744698675629808, guid: c90d5cdca99702948baa6e4bd2011dbf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c90d5cdca99702948baa6e4bd2011dbf, type: 2}
   m_IsPrefabParent: 0
@@ -1673,6 +1677,12 @@ Transform:
   m_Father: {fileID: 1994006962}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &348769705 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114730808045112262, guid: 30f4c027db2f923449500ae26f4836a1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1968064563}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &364519052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &369040733
 Transform:
   m_ObjectHideFlags: 0
@@ -1776,7 +1786,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 369040732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 382692845}
@@ -1934,7 +1944,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 412703328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1968064564}
@@ -2716,6 +2726,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621288233}
+--- !u!114 &627649846 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114577687368951410, guid: b47f733bcbbe756488ee5679dffb7b90,
+    type: 2}
+  m_PrefabInternal: {fileID: 1924879149}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &633699381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2912,6 +2928,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 659922240}
+--- !u!1 &710385534 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1241370077073668, guid: 30f4c027db2f923449500ae26f4836a1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1968064563}
 --- !u!1 &713444440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,6 +2942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713444442}
   - component: {fileID: 713444441}
+  - component: {fileID: 713444443}
   m_Layer: 0
   m_Name: Heroes
   m_TagString: Untagged
@@ -2964,6 +2986,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &713444443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 713444440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871108c28aee05342896604fd02510ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partyList:
+  - Shoob
+  - Pug
+  - Beagle
+  - Shiba
+  partyListObject:
+  - {fileID: 710385534}
+  - {fileID: 1504598227}
+  - {fileID: 1494138971}
+  - {fileID: 1264081352}
+  hpPoints:
+  - 0
+  - 0
+  - 0
+  - 0
+  hpBar:
+  - {fileID: 348769705}
+  - {fileID: 887400383}
+  - {fileID: 1125344448}
+  - {fileID: 627649846}
 --- !u!1 &738051530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3770,6 +3823,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 881363412}
+--- !u!114 &887400383 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114510655225567572, guid: c90d5cdca99702948baa6e4bd2011dbf,
+    type: 2}
+  m_PrefabInternal: {fileID: 22903985}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &888673258
 Prefab:
   m_ObjectHideFlags: 0
@@ -4425,6 +4484,12 @@ MonoBehaviour:
   endDoorPrefab: {fileID: 1859377738923824, guid: 60f68c0ee086efc4a8802ca26f02150f,
     type: 2}
   localId: 0
+--- !u!114 &1125344448 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114804751471802838, guid: 0caa221cc2ed72e42a4efc682603a3d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1821428930}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1148848089
 GameObject:
   m_ObjectHideFlags: 0
@@ -4650,6 +4715,11 @@ Transform:
   m_Father: {fileID: 752826388}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1264081352 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1023988029636294, guid: b47f733bcbbe756488ee5679dffb7b90,
+    type: 2}
+  m_PrefabInternal: {fileID: 1924879149}
 --- !u!1 &1264571071
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,6 +4949,11 @@ Transform:
   m_Father: {fileID: 752826388}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1494138971 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1011742085719582, guid: 0caa221cc2ed72e42a4efc682603a3d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1821428930}
 --- !u!1 &1501042292
 GameObject:
   m_ObjectHideFlags: 0
@@ -4955,6 +5030,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1501042292}
+--- !u!1 &1504598227 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1034160566185812, guid: c90d5cdca99702948baa6e4bd2011dbf,
+    type: 2}
+  m_PrefabInternal: {fileID: 22903985}
 --- !u!1 &1510142166
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,6 +5423,9 @@ MonoBehaviour:
   - {fileID: 52029258}
   - {fileID: 1984433839}
   changeButton: {fileID: 503171664}
+  heroPositions: fffffffffdfffffffbfffffff9ffffff
+  enemyPositions: 01000000030000000500000007000000
+  yPos: -1
 --- !u!4 &1573146511
 Transform:
   m_ObjectHideFlags: 0
@@ -5395,7 +5478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deltaSpace: 0
   maxDeltaSpace: 4
-  encounterChance: 0.3
+  encounterChance: 0.7
   maxEnemies: 2
   enemies:
   - {fileID: 11400000, guid: 893f36101c45edf4b9f69009cb4d6eef, type: 2}

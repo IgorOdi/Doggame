@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Slime Cat
   stats:
-    hp: 5
-    atk: 12
+    hp: 12
+    atk: 4
     def: 2
-    spd: 4
-    crt: 0.1
+    spd: 3
+    crt: 0.2
   skillList:
   - {fileID: 11400000, guid: 1a593f4f0c9914948b00fd696a944f24, type: 2}
