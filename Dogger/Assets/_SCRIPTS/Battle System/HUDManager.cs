@@ -21,6 +21,13 @@ public class HUDManager : MonoBehaviour {
 	[SerializeField]
 	private RectTransform targetMarker;
 
+	[SerializeField]
+	private Image picProfile;
+	[SerializeField]
+	private Image[] skills;
+
+	private const int maxSkills = 4;
+
 	void Awake() {
 
 		if (instance == null) instance = this;
@@ -28,20 +35,20 @@ public class HUDManager : MonoBehaviour {
 
 	public void ChangeHeroHUD(Stats _heroStats) {
 
-		statsText [0].text = "HP " + _heroStats.hp.ToString();
-		statsText [1].text = "ATK " + _heroStats.atk.ToString();
-		statsText [2].text = "DEF " + _heroStats.def.ToString();
-		statsText [3].text = "SPD " + _heroStats.spd.ToString();
-		statsText [4].text = "CRIT " + _heroStats.crt * 100 + "%";
+		statsText [0].text = _heroStats.hp.ToString();
+		statsText [1].text = _heroStats.atk.ToString();
+		statsText [2].text = _heroStats.def.ToString();
+		statsText [3].text = _heroStats.spd.ToString();
+		statsText [4].text = _heroStats.crt * 100 + "%";
 	}
 
 	public void ChangeEnemyHUD(Stats _enemyStats) {
 
-		enemyStatsText [0].text = "HP " + _enemyStats.hp.ToString();
-		enemyStatsText [1].text = "ATK " + _enemyStats.atk.ToString();
-		enemyStatsText [2].text = "DEF " + _enemyStats.def.ToString();
-		enemyStatsText [3].text = "SPD " + _enemyStats.spd.ToString();
-		enemyStatsText [4].text = "CRIT " + _enemyStats.crt * 100 + "%";
+		enemyStatsText [0].text = _enemyStats.hp.ToString();
+		enemyStatsText [1].text = _enemyStats.atk.ToString();
+		enemyStatsText [2].text = _enemyStats.def.ToString();
+		enemyStatsText [3].text = _enemyStats.spd.ToString();
+		enemyStatsText [4].text = _enemyStats.crt * 100 + "%";
 	}
 
 	public void ChangeTargetHUD(BattleAgent selectedAgent) {
@@ -67,6 +74,16 @@ public class HUDManager : MonoBehaviour {
 
 		int _agentTurn = BattleManager.instance.agentTurn;
 		Transform t = BattleManager.instance.battleAgents [_agentTurn].transform;
+
+		if (BattleManager.instance.battleAgents [_agentTurn].GetComponent<HeroAgent> () != null) {
+			
+			picProfile.sprite = BattleManager.instance.battleAgents [_agentTurn].iconpack.picProfile;
+
+			for (int i = 0; i < maxSkills; i++) {
+
+				skills [i].sprite = BattleManager.instance.battleAgents [_agentTurn].iconpack.skills [i];
+			}
+		}
 
 		Vector2 pos = worldToUISpace (t.position);
 		Vector2 newPos = turnMarker.transform.position;

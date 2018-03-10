@@ -91,7 +91,7 @@ public class Skill : ScriptableObject {
 					_attacker.source.Play ();
 				}
 
-				if (_target.source != null) {
+				if (_target.soundpack != null) {
 
 					int randomizer = Random.Range (0, _target.soundpack.screamSound.Length);
 					_target.source.clip = _target.soundpack.screamSound [randomizer];

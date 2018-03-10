@@ -7,6 +7,7 @@ public class BattleAgent : MonoBehaviour {
 
 	public Stats actualInfo;
 	public Soundpack soundpack;
+	public Iconpack iconpack;
 	public AudioSource source;
 	[HideInInspector]
 	public int[] skillCooldown;

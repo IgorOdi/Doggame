@@ -115,6 +115,9 @@ public class BattleManager : MonoBehaviour {
 				enemyAgent.DefineStats ();
 				enemyParty.Add (enemyAgent);
 
+				battleAgents [i].soundpack = enemyAgent.enemyInfo.soundpack;
+				battleAgents [i].anim.runtimeAnimatorController = enemyAgent.enemyInfo.animator;
+
 				battleAgents [i].transform.localPosition = new Vector2 (enemyPositions [i - maxEnemies], yPos);
 			}
 		}

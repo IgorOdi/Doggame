@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 	public Transform[] corridorPositions;
 
 	public Transform heroesT;
-	public GameObject explroerHeroes;
+	public GameObject explorerHeroes;
 	public GameObject battleHeroes;
 	Vector3 screenCenter;
 
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour {
 	public void FadeToBattle() {
 
 		Movement.canMove = false;
-		explroerHeroes.SetActive (false);
+		explorerHeroes.SetActive (false);
 		battleHeroes.SetActive (true);
 	}
 
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour {
 			yield return null;
 
 		Movement.canMove = true;
-		explroerHeroes.SetActive (true);
+		explorerHeroes.SetActive (true);
 		battleHeroes.SetActive (false);
 	}
 

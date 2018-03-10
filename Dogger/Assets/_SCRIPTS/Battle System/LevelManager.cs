@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour {
 
 		if (randomizeEncounter < encounterChance) {
 
-			int randomizeMaxEnemies = Random.Range (0, maxEnemies + 1);
+			int randomizeMaxEnemies = Random.Range (1, maxEnemies + 1);
 
 			List<Enemy> enemyList = new List<Enemy> ();
 

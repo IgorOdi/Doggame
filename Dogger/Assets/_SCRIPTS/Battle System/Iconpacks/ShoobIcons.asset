@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651a877961374554c80308475de1a480, type: 3}
+  m_Name: ShoobIcons
+  m_EditorClassIdentifier: 
+  picProfile: {fileID: 21300002, guid: 4de8f1bad357db34c8c67bbdfbc9d67a, type: 3}
+  skills:
+  - {fileID: 21300026, guid: 75155d30022a16f48aa06445b6e3d25e, type: 3}
+  - {fileID: 21300034, guid: 75155d30022a16f48aa06445b6e3d25e, type: 3}
+  - {fileID: 21300036, guid: 75155d30022a16f48aa06445b6e3d25e, type: 3}
+  - {fileID: 21300038, guid: 75155d30022a16f48aa06445b6e3d25e, type: 3}

@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 43b7a920a0df36f46a185124e8c7a442
+timeCreated: 1520641981
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GAME_JAM_gatos_1_0
+    21300002: GAME_JAM_gatos_1_1
+    21300004: GAME_JAM_gatos_1_2
+    21300006: GAME_JAM_gatos_1_3
+    21300008: GAME_JAM_gatos_1_6
+    21300010: GAME_JAM_gatos_1_9
+    21300012: GAME_JAM_gatos_1_10
+    21300014: GAME_JAM_gatos_1_12
+    21300016: GAME_JAM_gatos_1_13
+    21300018: GAME_JAM_gatos_1_14
+    21300020: GAME_JAM_gatos_1_15
+    21300022: GAME_JAM_gatos_1_16
+    21300024: GAME_JAM_gatos_1_17
+    21300026: GAME_JAM_gatos_1_18
+    21300028: GAME_JAM_gatos_1_21
+    21300030: GAME_JAM_gatos_1_23
+    21300032: GAME_JAM_gatos_1_28
+    21300034: GAME_JAM_gatos_1_29
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_0
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 816
+        width: 181
+        height: 137
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_1
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 816
+        width: 187
+        height: 135
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_2
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 816
+        width: 176
+        height: 124
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_3
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 816
+        width: 175
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_6
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 649
+        width: 432
+        height: 260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_9
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 647
+        width: 181
+        height: 137
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_10
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 644
+        width: 253
+        height: 182
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_12
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 647
+        width: 186
+        height: 134
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_13
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 647
+        width: 175
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_14
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 644
+        width: 176
+        height: 137
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_15
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 471
+        width: 165
+        height: 145
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_16
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 468
+        width: 180
+        height: 132
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_17
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 468
+        width: 173
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_18
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 472
+        width: 158
+        height: 150
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_21
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 338
+        width: 432
+        height: 261
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_23
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 338
+        width: 253
+        height: 182
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_28
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 70
+        width: 432
+        height: 218
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GAME_JAM_gatos_1_29
+      rect:
+        serializedVersion: 2
+        x: 1613
+        y: 57
+        width: 258
+        height: 174
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
