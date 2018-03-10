@@ -113,7 +113,8 @@ public class GameManager : MonoBehaviour {
 		Vector3 newPos = Vector3.right * 50;
 
 		GameManager.instance.nextRoom = _nextRoom;
-		GameManager.instance.currentCorridor = _nextRoom - 2;
+		if (_nextRoom - 2 >= 0)
+			GameManager.instance.currentCorridor = _nextRoom - 2;
 
 		posName = GameManager.instance.currentRoom + "-" + GameManager.instance.nextRoom;
 
