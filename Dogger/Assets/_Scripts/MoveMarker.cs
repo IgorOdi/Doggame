@@ -27,6 +27,7 @@ public class MoveMarker : MonoBehaviour {
 
 	public void ChooseRoom(int roomNum) {
 		if (GameManager.instance.currentLocation == "Room") {
+
 			if (GameManager.instance.currentRoom == 1 && (roomNum == 2 || roomNum == 3 || roomNum == 4)) {
 				GameManager.instance.GoToCorridor (roomNum);
 			} else if ((GameManager.instance.currentRoom == 2 || GameManager.instance.currentRoom == 3 || GameManager.instance.currentRoom == 4) && roomNum == 1) {

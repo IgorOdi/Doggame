@@ -56,6 +56,15 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		UpdateHeroesPosition ();
 		print (currentRoom + "-" + nextRoom);
+
+		if (SceneManager.GetActiveScene().name == "1-1") {
+			roomPositions = GameObject.Find ("Room Positions").transform.GetComponentsInChildren<Transform> ();
+			corridorPositions = GameObject.Find ("Corridor Positions").transform.GetComponentsInChildren<Transform> ();
+		}
+
+		if (GameManager.instance.currentRoom >= 6) {
+			OnChangeScene ("Vitoria");
+		}
 	}
 		
 
@@ -160,11 +169,6 @@ public class GameManager : MonoBehaviour {
 
 		while (!asyncLoad.isDone) {
 			yield return null;
-		}
-
-		if (sceneName == "1-1") {
-			roomPositions = GameObject.Find ("Room Positions").transform.GetComponentsInChildren<Transform> ();
-			corridorPositions = GameObject.Find ("Corridor Positions").transform.GetComponentsInChildren<Transform> ();
 		}
 
 		sceneLoaded = false;
