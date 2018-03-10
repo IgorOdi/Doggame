@@ -2812,6 +2812,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1.25}
   m_SizeDelta: {x: 1.5, y: 0.25}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &951939179 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1102824287324882, guid: 59b88fa5203af2b439c14a69cf17ceca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1982324677}
 --- !u!1 &976225249
 GameObject:
   m_ObjectHideFlags: 0
@@ -3757,6 +3762,8 @@ MonoBehaviour:
   - {fileID: 1982324684}
   - {fileID: 1982324683}
   - {fileID: 1982324682}
+  mapa: {fileID: 951939179}
+  battle: {fileID: 1627724477}
 --- !u!114 &1573146510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3945,6 +3952,11 @@ Transform:
   m_Father: {fileID: 1948411622}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1627724477 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1892824417171624, guid: 59b88fa5203af2b439c14a69cf17ceca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1982324677}
 --- !u!1 &1710870480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4537,7 +4549,7 @@ Prefab:
     - target: {fileID: 224146723450267856, guid: 59b88fa5203af2b439c14a69cf17ceca,
         type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 224146723450267856, guid: 59b88fa5203af2b439c14a69cf17ceca,
         type: 2}
@@ -4589,12 +4601,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114601803322775828, guid: 59b88fa5203af2b439c14a69cf17ceca,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300002, guid: 4de8f1bad357db34c8c67bbdfbc9d67a,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59b88fa5203af2b439c14a69cf17ceca, type: 2}
   m_IsPrefabParent: 0

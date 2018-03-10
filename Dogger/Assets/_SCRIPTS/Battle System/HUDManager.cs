@@ -26,6 +26,9 @@ public class HUDManager : MonoBehaviour {
 	[SerializeField]
 	private Image[] skills;
 
+	public GameObject mapa;
+	public GameObject battle;
+
 	private const int maxSkills = 4;
 
 	void Awake() {

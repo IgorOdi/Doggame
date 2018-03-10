@@ -1456,7 +1456,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99
+  m_Text: 
 --- !u!114 &114110885430125590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1772,7 +1772,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 33
+  m_Text: 
 --- !u!114 &114261930447303916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2527,7 +2527,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4de8f1bad357db34c8c67bbdfbc9d67a, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 4de8f1bad357db34c8c67bbdfbc9d67a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2802,7 +2802,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99
+  m_Text: 
 --- !u!114 &114668707515593362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3004,7 +3004,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99
+  m_Text: 
 --- !u!114 &114810027235611602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3256,7 +3256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99
+  m_Text: 
 --- !u!114 &114912776203301358
 MonoBehaviour:
   m_ObjectHideFlags: 1

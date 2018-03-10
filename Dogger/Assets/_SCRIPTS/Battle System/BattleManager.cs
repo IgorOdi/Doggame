@@ -75,11 +75,11 @@ public class BattleManager : MonoBehaviour {
 				StartCoroutine (Action (3));
 		});
 
-		changeButton.onClick.AddListener (delegate {
-
-			if (selectedHero == battleAgents [agentTurn])
-				StartCoroutine (ChangeOrder ());
-		});
+//		changeButton.onClick.AddListener (delegate {
+//
+//			if (selectedHero == battleAgents [agentTurn])
+//				StartCoroutine (ChangeOrder ());
+//		});
 	}
 
 	public void StartBattle(List<Enemy> _enemies) {
@@ -87,6 +87,8 @@ public class BattleManager : MonoBehaviour {
 		//canMove = false;
 
 		GameManager.instance.FadeToBattle ();
+		HUDManager.instance.battle.SetActive (true);
+		HUDManager.instance.mapa.SetActive (false);
 
 		for (int i = 0; i < _enemies.Count + maxEnemies; i++) {
 
@@ -342,6 +344,8 @@ public class BattleManager : MonoBehaviour {
 			PartyManager.instance.PositioningGoodBoys ();
 			HUDManager.instance.ChangeTargetHUD (null);
 			HUDManager.instance.DeactivateTurnHUD ();
+			HUDManager.instance.battle.SetActive (false);
+			HUDManager.instance.mapa.SetActive (true);
 			StartCoroutine(GameManager.instance.FadeOffBattle ());
 		} else {
 
