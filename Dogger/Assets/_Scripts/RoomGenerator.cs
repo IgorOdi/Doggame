@@ -12,7 +12,7 @@ public class RoomGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//GenerateRoom ();
+		GenerateRoom ();
 	}
 
 	void GenerateRoom () {

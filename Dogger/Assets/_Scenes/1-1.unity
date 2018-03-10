@@ -1101,14 +1101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 21300000, guid: e56687448ddf72f4d966d1810a176d89, type: 3}
-  - {fileID: 21300000, guid: 7b07d9b4b33f8cf49bbb19656e526428, type: 3}
-  - {fileID: 21300000, guid: f74ae3ae3761eed4685fba82ca30c443, type: 3}
-  - {fileID: 21300000, guid: 8faf2c93e735dbf4aaa54ebda3b94071, type: 3}
-  - {fileID: 21300000, guid: fdb88b509e4f4d64a9cf0b0e3f8cdd34, type: 3}
-  - {fileID: 21300000, guid: 91a24fda99eceff4387e70a32b4f78df, type: 3}
-  - {fileID: 21300000, guid: 66be4dcc55aac68428bf381e84d58edd, type: 3}
-  - {fileID: 21300000, guid: dbfcd8889241dbb4b9c11eb079f83f89, type: 3}
+  - {fileID: 21300000, guid: f84b2922cf4673541ac00bd14123a611, type: 3}
+  - {fileID: 21300000, guid: 0aff07664fa7a5744b4d17f1c246fdbe, type: 3}
+  - {fileID: 21300000, guid: bd86ca9ef2b6ef54bae5bb70cb199210, type: 3}
   localId: 1
 --- !u!1 &204448257
 GameObject:
@@ -1401,14 +1396,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 21300000, guid: e56687448ddf72f4d966d1810a176d89, type: 3}
-  - {fileID: 21300000, guid: 7b07d9b4b33f8cf49bbb19656e526428, type: 3}
-  - {fileID: 21300000, guid: f74ae3ae3761eed4685fba82ca30c443, type: 3}
-  - {fileID: 21300000, guid: 8faf2c93e735dbf4aaa54ebda3b94071, type: 3}
-  - {fileID: 21300000, guid: fdb88b509e4f4d64a9cf0b0e3f8cdd34, type: 3}
-  - {fileID: 21300000, guid: 91a24fda99eceff4387e70a32b4f78df, type: 3}
-  - {fileID: 21300000, guid: 66be4dcc55aac68428bf381e84d58edd, type: 3}
-  - {fileID: 21300000, guid: dbfcd8889241dbb4b9c11eb079f83f89, type: 3}
+  - {fileID: 21300000, guid: f84b2922cf4673541ac00bd14123a611, type: 3}
+  - {fileID: 21300000, guid: 0aff07664fa7a5744b4d17f1c246fdbe, type: 3}
+  - {fileID: 21300000, guid: bd86ca9ef2b6ef54bae5bb70cb199210, type: 3}
   localId: 3
 --- !u!1 &261899422
 GameObject:
@@ -2158,14 +2148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 21300000, guid: e56687448ddf72f4d966d1810a176d89, type: 3}
-  - {fileID: 21300000, guid: 7b07d9b4b33f8cf49bbb19656e526428, type: 3}
-  - {fileID: 21300000, guid: f74ae3ae3761eed4685fba82ca30c443, type: 3}
-  - {fileID: 21300000, guid: 8faf2c93e735dbf4aaa54ebda3b94071, type: 3}
-  - {fileID: 21300000, guid: fdb88b509e4f4d64a9cf0b0e3f8cdd34, type: 3}
-  - {fileID: 21300000, guid: 91a24fda99eceff4387e70a32b4f78df, type: 3}
-  - {fileID: 21300000, guid: 66be4dcc55aac68428bf381e84d58edd, type: 3}
-  - {fileID: 21300000, guid: dbfcd8889241dbb4b9c11eb079f83f89, type: 3}
+  - {fileID: 21300000, guid: f84b2922cf4673541ac00bd14123a611, type: 3}
+  - {fileID: 21300000, guid: 0aff07664fa7a5744b4d17f1c246fdbe, type: 3}
+  - {fileID: 21300000, guid: bd86ca9ef2b6ef54bae5bb70cb199210, type: 3}
   localId: 5
 --- !u!1 &464431351
 GameObject:
@@ -3325,14 +3310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 21300000, guid: e56687448ddf72f4d966d1810a176d89, type: 3}
-  - {fileID: 21300000, guid: 7b07d9b4b33f8cf49bbb19656e526428, type: 3}
-  - {fileID: 21300000, guid: f74ae3ae3761eed4685fba82ca30c443, type: 3}
-  - {fileID: 21300000, guid: 8faf2c93e735dbf4aaa54ebda3b94071, type: 3}
-  - {fileID: 21300000, guid: fdb88b509e4f4d64a9cf0b0e3f8cdd34, type: 3}
-  - {fileID: 21300000, guid: 91a24fda99eceff4387e70a32b4f78df, type: 3}
-  - {fileID: 21300000, guid: 66be4dcc55aac68428bf381e84d58edd, type: 3}
-  - {fileID: 21300000, guid: dbfcd8889241dbb4b9c11eb079f83f89, type: 3}
+  - {fileID: 21300000, guid: f84b2922cf4673541ac00bd14123a611, type: 3}
+  - {fileID: 21300000, guid: 0aff07664fa7a5744b4d17f1c246fdbe, type: 3}
+  - {fileID: 21300000, guid: bd86ca9ef2b6ef54bae5bb70cb199210, type: 3}
   localId: 5
 --- !u!1 &793630496
 GameObject:
@@ -6131,14 +6111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 21300000, guid: e56687448ddf72f4d966d1810a176d89, type: 3}
-  - {fileID: 21300000, guid: 7b07d9b4b33f8cf49bbb19656e526428, type: 3}
-  - {fileID: 21300000, guid: f74ae3ae3761eed4685fba82ca30c443, type: 3}
-  - {fileID: 21300000, guid: 8faf2c93e735dbf4aaa54ebda3b94071, type: 3}
-  - {fileID: 21300000, guid: fdb88b509e4f4d64a9cf0b0e3f8cdd34, type: 3}
-  - {fileID: 21300000, guid: 91a24fda99eceff4387e70a32b4f78df, type: 3}
-  - {fileID: 21300000, guid: 66be4dcc55aac68428bf381e84d58edd, type: 3}
-  - {fileID: 21300000, guid: dbfcd8889241dbb4b9c11eb079f83f89, type: 3}
+  - {fileID: 21300000, guid: f84b2922cf4673541ac00bd14123a611, type: 3}
+  - {fileID: 21300000, guid: 0aff07664fa7a5744b4d17f1c246fdbe, type: 3}
+  - {fileID: 21300000, guid: bd86ca9ef2b6ef54bae5bb70cb199210, type: 3}
   localId: 4
 --- !u!1 &1875717991
 GameObject:
@@ -6500,14 +6475,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 21300000, guid: e56687448ddf72f4d966d1810a176d89, type: 3}
-  - {fileID: 21300000, guid: 7b07d9b4b33f8cf49bbb19656e526428, type: 3}
-  - {fileID: 21300000, guid: f74ae3ae3761eed4685fba82ca30c443, type: 3}
-  - {fileID: 21300000, guid: 8faf2c93e735dbf4aaa54ebda3b94071, type: 3}
-  - {fileID: 21300000, guid: fdb88b509e4f4d64a9cf0b0e3f8cdd34, type: 3}
-  - {fileID: 21300000, guid: 91a24fda99eceff4387e70a32b4f78df, type: 3}
-  - {fileID: 21300000, guid: 66be4dcc55aac68428bf381e84d58edd, type: 3}
-  - {fileID: 21300000, guid: dbfcd8889241dbb4b9c11eb079f83f89, type: 3}
+  - {fileID: 21300000, guid: f84b2922cf4673541ac00bd14123a611, type: 3}
+  - {fileID: 21300000, guid: 0aff07664fa7a5744b4d17f1c246fdbe, type: 3}
+  - {fileID: 21300000, guid: bd86ca9ef2b6ef54bae5bb70cb199210, type: 3}
   localId: 2
 --- !u!1 &1956397410
 GameObject:

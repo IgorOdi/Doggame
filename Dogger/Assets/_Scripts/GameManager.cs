@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour {
 	public GameObject battleHeroes;
 	Vector3 screenCenter;
 
+	string posName;
 
 	public Camera cam;
-
 
 	public static GameManager instance = null;
 
@@ -113,15 +113,16 @@ public class GameManager : MonoBehaviour {
 		Vector3 newPos = Vector3.right * 50;
 
 		GameManager.instance.nextRoom = _nextRoom;
+		GameManager.instance.currentCorridor = _nextRoom - 2;
 
-		string posName = GameManager.instance.currentRoom + "-" + GameManager.instance.nextRoom;
+		posName = GameManager.instance.currentRoom + "-" + GameManager.instance.nextRoom;
 
 		for (int i = 0; i < GameManager.instance.corridorPositions.Length; i++) {
-			print (GameManager.instance.corridorPositions [i].name);
 			if (GameManager.instance.corridorPositions[i].name == posName) {
 				GameManager.instance.heroesT.position = GameManager.instance.corridorPositions [i].position;
 			}
 		}
+
 	}
 
 	public void FadeToBattle() {
