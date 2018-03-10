@@ -3834,7 +3834,7 @@ MonoBehaviour:
   deltaSpace: 0
   maxDeltaSpace: 4
   encounterChance: 0.5
-  maxEnemies: 2
+  maxEnemies: 3
   enemies:
   - {fileID: 11400000, guid: 893f36101c45edf4b9f69009cb4d6eef, type: 2}
   - {fileID: 11400000, guid: b712022e6c05f1d46b4a63cfb86bb4f1, type: 2}
