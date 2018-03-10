@@ -349,8 +349,7 @@ public class BattleManager : MonoBehaviour {
 			StartCoroutine(GameManager.instance.FadeOffBattle ());
 		} else {
 
-			print ("Game Over");
-//			GameManager.GameOver ();
+			GameManager.instance.OnChangeScene ("Derrota");
 		}
 	}
 }
