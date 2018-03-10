@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 	public int currentRoom;
 	public int nextRoom;
 
+
 	public Transform[] roomPositions;
 	public Transform[] corridorPositions;
 
@@ -48,9 +49,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start () {
-		roomPositions = GameObject.Find ("Room Positions").transform.GetComponentsInChildren<Transform> ();
-		corridorPositions = GameObject.Find ("Corridor Positions").transform.GetComponentsInChildren<Transform> ();
-
 		nextRoom = 2;
 	}
 
@@ -58,8 +56,6 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		UpdateHeroesPosition ();
 		print (currentRoom + "-" + nextRoom);
-
-
 	}
 		
 
@@ -164,6 +160,11 @@ public class GameManager : MonoBehaviour {
 
 		while (!asyncLoad.isDone) {
 			yield return null;
+		}
+
+		if (sceneName == "1-1") {
+			roomPositions = GameObject.Find ("Room Positions").transform.GetComponentsInChildren<Transform> ();
+			corridorPositions = GameObject.Find ("Corridor Positions").transform.GetComponentsInChildren<Transform> ();
 		}
 
 		sceneLoaded = false;

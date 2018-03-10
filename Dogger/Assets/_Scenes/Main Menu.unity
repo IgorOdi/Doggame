@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 1825071609495860, guid: 5d0534f18434a844b93f9e9e355ee1df, type: 2}
+  music: {fileID: 1328564753270440, guid: bee58a24f96d05c44bad64391c2acc8a, type: 2}
 --- !u!1 &1325221322
 GameObject:
   m_ObjectHideFlags: 0
