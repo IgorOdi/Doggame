@@ -131,7 +131,11 @@ public class GameManager : MonoBehaviour {
 		battleHeroes.SetActive (true);
 	}
 
-	public void FadeOffBattle() {
+	public IEnumerator FadeOffBattle() {
+
+		float startTime = Time.time;
+		while (Time.time < startTime + 2f)
+			yield return null;
 
 		Movement.canMove = true;
 		explroerHeroes.SetActive (true);
