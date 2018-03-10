@@ -115,6 +115,9 @@ public class BattleManager : MonoBehaviour {
 				enemyAgent.DefineStats ();
 				enemyParty.Add (enemyAgent);
 
+				battleAgents [i].soundpack = enemyAgent.enemyInfo.soundpack;
+				battleAgents [i].anim.runtimeAnimatorController = enemyAgent.enemyInfo.animator;
+
 				battleAgents [i].transform.localPosition = new Vector2 (enemyPositions [i - maxEnemies], yPos);
 			}
 		}
@@ -248,6 +251,10 @@ public class BattleManager : MonoBehaviour {
 
 	private IEnumerator RePosition(Transform tr, float _a, float _b) {
 
+		float startTime = Time.time;
+		while (Time.time < startTime + 1f)
+			yield return null;
+
 		float t = 0;
 
 		Vector2 a = new Vector2 (_a, yPos);
@@ -331,7 +338,7 @@ public class BattleManager : MonoBehaviour {
 			PartyManager.instance.PositioningGoodBoys ();
 			HUDManager.instance.ChangeTargetHUD (null);
 			HUDManager.instance.DeactivateTurnHUD ();
-			GameManager.instance.FadeOffBattle ();
+			StartCoroutine(GameManager.instance.FadeOffBattle ());
 		} else {
 
 			print ("Game Over");

@@ -76,8 +76,10 @@ public class Skill : ScriptableObject {
 
 				_target.actualInfo.hp -= _damage * critMultiplier;
 
-				if (_target.anim != null)
+				if (_target.anim != null && _target.actualInfo.hp > 0)
 				_target.anim.SetTrigger ("Hit");
+				else if (_target.anim != null && _target.actualInfo.hp <= 0)
+					_target.anim.SetTrigger("Dead");
 
 				if (_attacker.anim != null)
 				_attacker.anim.SetTrigger ("Attack");
@@ -89,7 +91,7 @@ public class Skill : ScriptableObject {
 					_attacker.source.Play ();
 				}
 
-				if (_target.source != null) {
+				if (_target.soundpack != null) {
 
 					int randomizer = Random.Range (0, _target.soundpack.screamSound.Length);
 					_target.source.clip = _target.soundpack.screamSound [randomizer];

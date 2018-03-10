@@ -1019,6 +1019,7 @@ MonoBehaviour:
     spd: 0
     crt: 0
   soundpack: {fileID: 0}
+  iconpack: {fileID: 0}
   source: {fileID: 0}
   skillCooldown: 
   position: 0
@@ -2923,6 +2924,7 @@ MonoBehaviour:
     spd: 0
     crt: 0
   soundpack: {fileID: 0}
+  iconpack: {fileID: 0}
   source: {fileID: 0}
   skillCooldown: 
   position: 0
@@ -3374,6 +3376,7 @@ MonoBehaviour:
     spd: 0
     crt: 0
   soundpack: {fileID: 0}
+  iconpack: {fileID: 0}
   source: {fileID: 0}
   skillCooldown: 
   position: 0
@@ -3809,6 +3812,7 @@ MonoBehaviour:
     spd: 0
     crt: 0
   soundpack: {fileID: 0}
+  iconpack: {fileID: 0}
   source: {fileID: 0}
   skillCooldown: 
   position: 0
@@ -4265,6 +4269,8 @@ MonoBehaviour:
   - {fileID: 0}
   turnMarker: {fileID: 590917183}
   targetMarker: {fileID: 1692916925}
+  picProfile: {fileID: 0}
+  skills: []
 --- !u!114 &1573146510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4336,7 +4342,7 @@ MonoBehaviour:
   roomPositions: []
   corridorPositions: []
   heroesT: {fileID: 0}
-  explroerHeroes: {fileID: 412703328}
+  explorerHeroes: {fileID: 0}
   battleHeroes: {fileID: 369040732}
   cam: {fileID: 0}
   currentLocation: 
