@@ -4607,6 +4607,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114976426414848398, guid: 59b88fa5203af2b439c14a69cf17ceca,
+        type: 2}
+      propertyPath: battle
+      value: 
+      objectReference: {fileID: 369040732}
+    - target: {fileID: 114976426414848398, guid: 59b88fa5203af2b439c14a69cf17ceca,
+        type: 2}
+      propertyPath: explorer
+      value: 
+      objectReference: {fileID: 412703328}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59b88fa5203af2b439c14a69cf17ceca, type: 2}
   m_IsPrefabParent: 0

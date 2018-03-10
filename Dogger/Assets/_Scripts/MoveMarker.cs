@@ -7,6 +7,9 @@ public class MoveMarker : MonoBehaviour {
 	public RectTransform[] roomPositions;
 	public RectTransform[] corridorPositions;
 
+	public GameObject battle;
+	public GameObject explorer;
+
 	RectTransform rectT;
 
 	// Use this for initialization
@@ -22,6 +25,11 @@ public class MoveMarker : MonoBehaviour {
 			print ("Current corridor: " + GameManager.instance.currentCorridor);
 			rectT.anchoredPosition = corridorPositions [GameManager.instance.currentCorridor].anchoredPosition;
 		}
+
+		GameManager.instance.battleHeroes = battle;
+
+		GameManager.instance.explorerHeroes = explorer;
+
 	}
 
 
