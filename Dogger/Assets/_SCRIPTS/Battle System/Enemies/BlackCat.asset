@@ -20,6 +20,5 @@ MonoBehaviour:
     crt: 0.2
   skillList:
   - {fileID: 11400000, guid: 65e62518703327146989949e463edcd7, type: 2}
-  - {fileID: 11400000, guid: 896fcff47b0cf194cbfd391d8541871e, type: 2}
   soundpack: {fileID: 11400000, guid: 6a4f543aeaa45cc4d9d512b98fc78265, type: 2}
   animator: {fileID: 9100000, guid: 30bb7f9b94cc6204aa805ffbff2578d7, type: 2}
