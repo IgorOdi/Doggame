@@ -735,6 +735,12 @@ MonoBehaviour:
   endDoorPrefab: {fileID: 1859377738923824, guid: 60f68c0ee086efc4a8802ca26f02150f,
     type: 2}
   localId: 3
+--- !u!114 &169831982 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114645893715411336, guid: 59b88fa5203af2b439c14a69cf17ceca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1982324677}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &182029195
 Prefab:
   m_ObjectHideFlags: 0
@@ -3797,7 +3803,7 @@ MonoBehaviour:
   - {fileID: 909798142}
   - {fileID: 572058611}
   - {fileID: 906128500}
-  changeButton: {fileID: 0}
+  changeButton: {fileID: 169831982}
   heroPositions: fffffffffdfffffffbfffffff9ffffff
   enemyPositions: 01000000030000000500000007000000
   yPos: -1
@@ -3831,7 +3837,7 @@ MonoBehaviour:
   maxEnemies: 2
   enemies:
   - {fileID: 11400000, guid: 893f36101c45edf4b9f69009cb4d6eef, type: 2}
-  - {fileID: 11400000, guid: 94f01bba9e9517b4d96437e3d6a982ff, type: 2}
+  - {fileID: 11400000, guid: b712022e6c05f1d46b4a63cfb86bb4f1, type: 2}
   - {fileID: 11400000, guid: 94f01bba9e9517b4d96437e3d6a982ff, type: 2}
 --- !u!1 &1585666395
 GameObject:

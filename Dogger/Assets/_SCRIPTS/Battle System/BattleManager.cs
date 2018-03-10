@@ -75,11 +75,11 @@ public class BattleManager : MonoBehaviour {
 				StartCoroutine (Action (3));
 		});
 
-//		changeButton.onClick.AddListener (delegate {
-//
-//			if (selectedHero == battleAgents [agentTurn])
-//				StartCoroutine (ChangeOrder ());
-//		});
+		changeButton.onClick.AddListener (delegate {
+
+			if (selectedHero == battleAgents [agentTurn])
+				StartCoroutine (ChangeOrder ());
+		});
 	}
 
 	public void StartBattle(List<Enemy> _enemies) {
