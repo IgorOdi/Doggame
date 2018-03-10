@@ -20,3 +20,6 @@ MonoBehaviour:
     crt: 0.2
   skillList:
   - {fileID: 11400000, guid: 1a593f4f0c9914948b00fd696a944f24, type: 2}
+  - {fileID: 11400000, guid: acd759c007dd057468d95ce059e22bfa, type: 2}
+  - {fileID: 11400000, guid: f6350cd4ef2ecf1499637d143b4563a8, type: 2}
+  - {fileID: 11400000, guid: cd7a250c61d48eb48b4d92b3205f77fc, type: 2}

@@ -204,13 +204,17 @@ public class BattleManager : MonoBehaviour {
 		Skill selectedSkill = heroAgent.heroInfo.skillList [index];
 		allySkill = selectedSkill.skillType == SkillType.ATTACK ? true : false;
 
+		bool autobuff = selectedSkill.skillType == SkillType.AUTOBUFF ? true : false;
 		bool canUse = heroAgent.skillCooldown[index] <= turn ? true : false;
 
-		if (canUse)
-			selecting = true;
+		if (!autobuff) {
+			
+			if (canUse)
+				selecting = true;
 
-		while (selectedTarget == null)
-			yield return null;
+			while (selectedTarget == null)
+				yield return null;
+		}
 
 		if (selectedHero == battleAgents [agentTurn]) {
 

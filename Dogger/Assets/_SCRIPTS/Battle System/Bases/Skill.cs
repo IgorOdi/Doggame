@@ -72,31 +72,31 @@ public class Skill : ScriptableObject {
 			if (_damage <= 0)
 				_damage = 1;
 
+			if (_target.anim != null && _target.actualInfo.hp > 0)
+				_target.anim.SetTrigger ("Hit");
+			else if (_target.anim != null && _target.actualInfo.hp <= 0)
+				_target.anim.SetTrigger("Dead");
+
+			if (_attacker.anim != null)
+				_attacker.anim.SetTrigger ("Attack");
+			_attacker.GetComponentInChildren<SpriteRenderer> ().sortingOrder = 10;
+
+			if (_attacker.soundpack != null) {
+
+				_attacker.source.clip = _attacker.soundpack.attackSound [0];
+				_attacker.source.Play ();
+			}
+
+			if (_target.soundpack != null) {
+
+				int randomizer = Random.Range (0, _target.soundpack.screamSound.Length);
+				_target.source.clip = _target.soundpack.screamSound [randomizer];
+				_target.source.Play ();
+			}
+
 			if (targetType == TargetType.OneTarget) {
 
 				_target.actualInfo.hp -= _damage * critMultiplier;
-
-				if (_target.anim != null && _target.actualInfo.hp > 0)
-				_target.anim.SetTrigger ("Hit");
-				else if (_target.anim != null && _target.actualInfo.hp <= 0)
-					_target.anim.SetTrigger("Dead");
-
-				if (_attacker.anim != null)
-				_attacker.anim.SetTrigger ("Attack");
-				_attacker.GetComponentInChildren<SpriteRenderer> ().sortingOrder = 10;
-
-				if (_attacker.soundpack != null) {
-
-					_attacker.source.clip = _attacker.soundpack.attackSound [0];
-					_attacker.source.Play ();
-				}
-
-				if (_target.soundpack != null) {
-
-					int randomizer = Random.Range (0, _target.soundpack.screamSound.Length);
-					_target.source.clip = _target.soundpack.screamSound [randomizer];
-					_target.source.Play ();
-				}
 
 			} else {
 
@@ -118,7 +118,7 @@ public class Skill : ScriptableObject {
 			if (effectType != EffectType.NULL)
 				Debuff (_attacker, _target);
 
-			EndAction (_attacker, _target);
+			EndAction ();
 		}
 	}
 
@@ -150,7 +150,7 @@ public class Skill : ScriptableObject {
 				Buff (_healer, _target);
 		}
 
-		EndAction (_healer, _target);
+		EndAction ();
 	}
 
 	private void Buff (BattleAgent _buffer, BattleAgent _target) {
@@ -280,9 +280,11 @@ public class Skill : ScriptableObject {
 				_buffer.actualInfo.crt += _effect;
 				break;
 		}
+
+		EndAction ();
 	}
 
-	private void EndAction(BattleAgent _user, BattleAgent _target) {
+	private void EndAction() {
 
 		for (int i = 0; i < BattleManager.instance.battleAgents.Length; i++) {
 

@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 267ee21ccf63fda40a7220e5fe285b7c, type: 3}
-  m_Name: Pug Hit
+  m_Name: Beagle Debuff
   m_EditorClassIdentifier: 
-  name: Pug Hit
-  value: 0
-  effect: 0
-  range: 2
-  cooldown: 0
+  name: Area Debuff
+  value: 3
+  effect: 2
+  range: 0
+  cooldown: 4
   skillType: 0
-  targetType: 0
-  effectType: 0
+  targetType: 1
+  effectType: 2
