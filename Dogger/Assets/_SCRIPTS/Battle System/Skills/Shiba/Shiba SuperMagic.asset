@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Shiba SuperMagic
   m_EditorClassIdentifier: 
   name: Shiba SuperMagic
-  value: 6
+  value: 4
   effect: 0
   range: 0
   cooldown: 3
